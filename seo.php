@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
     $phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
     $service = isset($_POST['service']) ? htmlspecialchars($_POST['service']) : '';
+    $service_type = isset($_POST['service_type']) ? htmlspecialchars($_POST['service_type']) : '';
     $messageContent = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
 
     // Basic validation
@@ -70,7 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p><strong>Name:</strong> $name</p>
         <p><strong>Email:</strong> $email</p>
         <p><strong>Phone:</strong> $phone</p>
-        <p><strong>Service Selected:</strong> $service</p>
+        <p><strong>Service Page:</strong> $service</p>
+        <p><strong>Service Interest:</strong> $service_type</p>
         <div class='details'>
             <p><strong>Message:</strong><br>$messageContent</p>
         </div>

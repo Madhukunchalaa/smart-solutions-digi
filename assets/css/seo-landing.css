@@ -269,7 +269,7 @@
 
 /* 1. New Glassmorphism Hero */
 .hero-new-design {
-    padding: 80px 0 50px;
+    padding: 60px 0 40px;
     background: radial-gradient(circle at 10% 20%, #fff9f6 0%, #fff 100%);
     position: relative;
     overflow: hidden;
@@ -611,7 +611,7 @@
 
 /* 4. Who For Section */
 .who-for-section {
-    padding: 60px 0;
+    padding: 40px 0;
 }
 .check-list-modern li {
     font-size: 1.1rem;
@@ -852,7 +852,7 @@
 }
 
 .growth-channel-design-v2 {
-    padding: 100px 0;
+    padding: 60px 0;
     background-color: #fff6f3; /* Warmer pink/beige tone to match design */
 }
 
@@ -942,7 +942,7 @@
 }
 
 .faq-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background: #fafafa;
 }
 .faq-card {
@@ -996,7 +996,7 @@
         
 /* Modern Light Theme Pre-Footer */
 .pre-footer-cta-light {
-    padding: 100px 0;
+    padding: 60px 0;
     background: #ffffff;
     position: relative;
 }
@@ -1490,4 +1490,22 @@ select.form-control-pill {
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* SEO Page Font Enforcement */
+:root {
+    --title-font: 'Oswald', sans-serif;
+    --text-font: 'Raleway', sans-serif;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .hero-title, .section-title {
+    font-family: 'Oswald', sans-serif;
+}
+
+p, li, a, label, input, textarea, button, .text-muted, .lead {
+    font-family: 'Raleway', sans-serif;
 }
