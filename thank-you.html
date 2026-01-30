@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Smart Solutions Digi</title>
+    <!-- Stylesheets -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="assets/images/Asset 1.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/2097aac339.js" crossorigin="anonymous"></script>
+    
+    <!-- Responsive Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+   
+
+    <style>
+        /* Responsive Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Fluid Typography */
+        html {
+            font-size: calc(14px + 0.5vw);
+        }
+
+        /* Header Responsive Styles */
+        @media (max-width: 1200px) {
+            .header-lower .main-box {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            
+            .nav-outer {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .nav-outer .navigation {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .footer-column {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .widgets-section .row {
+                flex-direction: column;
+            }
+            
+            .footer-widget .social-icons {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo-box img {
+                max-width: 120px;
+            }
+            
+            .outer-box {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .thank-you-section {
+                padding: 30px 15px;
+            }
+            
+            .animated-box h1 {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .thank-you-title {
+                font-size: 2.5rem;
+            }
+            
+            .thank-you-message {
+                font-size: 1.2rem;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-widget .user-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-widget iframe {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .thank-you-title {
+                font-size: 2rem;
+            }
+            
+            .thank-you-message {
+                font-size: 1rem;
+            }
+            
+            .header-lower {
+                padding: 10px 0;
+            }
+            
+            .mobile-nav-toggler {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            .navigation {
+                display: none;
+            }
+        }
+
+        /* Thank You Section Animations */
+        .thank-you-section {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 0;
+        }
+
+        .animated-box h1 {
+            color: black;
+            position: relative;
+            width: 500px;
+            height: 250px;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: fade-in-move-up 1s ease-out forwards;
+        }
+        
+        .thank-you-title {
+            font-size: 3.5rem;
+            color: #F94A29;
+            opacity: 0;
+            animation: slide-in 1.5s ease-in-out forwards;
+            animation-delay: 0.5s;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .thank-you-message {
+            color: #333;
+            margin-top: 20px;
+            opacity: 0;
+            animation: slide-in-right 1.5s ease-in-out forwards;
+            animation-delay: 1.5s;
+            text-align: center;
+            z-index: 1;
+            color: black;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fade-in-move-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slide-in {
+            0% { opacity: 0; transform: translateX(-100px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slide-in-right {
+            0% { opacity: 0; transform: translateX(100px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17866862528"></script>
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Main Header -->
+        <header class="main-header header-style-one">
+            <div class="header-lower">
+                <div class="auto-container">
+                    <div class="main-box">
+                        <div class="logo-box">
+                            <div class="logo"><a href="index.html"><img src="assets/images/Asset 1.png" alt="Smart Solutions Logo" title="Smart Solutions"></a></div>
+                        </div>
+
+                        <div class="nav-outer">    
+                            <nav class="nav main-menu">
+                                <ul class="navigation">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="outer-box">
+                            <div class="search-btn">
+                                <a href="#" class="search"><i class="flaticon-search-3"></i></a>
+                            </div>
+                            <div class="btn">
+                                <a href="contact.html" class="theme-btn v2">Let's Talk</a>
+                            </div>
+                            <div class="mobile-nav-toggler">
+                                <i class="fa fa-bars"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Thank You Section -->
+        <div class="thank-you-section">
+            <div class="container">
+                <div class="animated-box">
+                    <h1 class="thank-you-title">Thank You!</h1>
+                    <p class="thank-you-message">We appreciate you reaching out to us. We'll get back to you soon.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer footer-style-one">
+            <div class="widgets-section">
+                <div class="auto-container">
+                    <div class="row">
+                        <!-- Footer Columns -->
+                        <div class="footer-column col-lg-3 col-sm-6">
+                            <div class="footer-widget contact-widget">
+                                <div class="logo-box">
+                                    <div class="logo"><a href="index.html"><img src="assets/images/footerlogo.png" alt="Footer Logo"></a></div>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="content-box">
+                  <div class="icon-box">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <span>Mail us</span>
+                  <h6 class="title"><a href="mailto:contact@smartsolutionsdigi.com"style="font-size: 15px;">contact@smartsolutionsdigi.com
+
+                  </a></h6>
+                </div>
+                <div class="content-box">
+                  <div class="icon-box">
+                   <a href="tel:+91 6281939690"><i class="fa-solid fa-phone"></i></a> 
+                  </div>
+                  
+                  <span>Call</span>
+                  <h6 class="title"><a href="tel:+916281939690"style="font-size: 15px;">+91 628 193 9690 
+
+                  </a></h6>
+                </div> 
+                                    <ul class="social-icons">
+                                            <li><a href="https://x.com/smartsolnsdigi" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                  <li><a href="https://www.facebook.com/smartsolutionsdigi/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                  <li><a href="https://www.linkedin.com/company/smartsolutionsdigi" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.instagram.com/smartsolutionsdigi/" target="_blank" ><i class="fa-brands fa-instagram"></i></a></li>
+ 
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer-column col-lg-3 col-sm-6">
+                            <div class="footer-widget links-widget">
+                                <h4 class="widget-title">Our Services</h4>
+                                <div class="widget-content">
+                                    <ul class="user-links style-two">
+                                        <li><a href="#">Digital Marketing</a></li>
+                                        <li><a href="#">SEO</a></li>
+                                        <li><a href="#">Pay Per Click</a></li>
+                                        <li><a href="#">Web Development</a></li>
+                                        <li><a href="#">App Development</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer-column col-lg-3 col-sm-6">
+                            <div class="footer-widget links-widget">
+                                <h4 class="widget-title">Useful Links</h4>
+                                <div class="widget-content">
+                                    <ul class="user-links style-two">
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Services</a></li>
+                                        <li><a href="#">Portfolio</a></li>
+                                        <li><a href="#">Team</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer-column col-lg-3 col-sm-6">
+                            <div class="footer-widget about-widget">
+                                <h4 class="widget-title">Address</h4>
+                                <div class="text">iSprout - Modern Profound Techpark, 2nd Floor, Survey No. 12, Office No. 201, Kondapur, Hyderabad, Telangana, 500032</div>
+                                <div class="subscribe-form-two">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15224.212025151264!2d78.3704337!3d17.4571769!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93cf9bc32c83%3A0x1e85e5cc49998439!2sProfound%20Builders!5e0!3m2!1sen!2sin!4v1737441443587!5m2!1sen!2sin" width="240" height="120" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+      <div class="auto-container">
+        <div class="inner-container">
+          <div class="copyright-text">© All rights reserved by Smart Solutions | <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a></div>
+        </div>
+      </div>
+    </div>
+        </footer>
+    </div>
+    
+    
+    
+ <script>
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get('type');
+
+  if (type === 'seo') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17866862528/0s9gCJbMje4bEMDfysdC'
+    });
+  }
+
+  if (type === 'webdev') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17866862528/HYFFCIiwoe4bEMDfysdC'
+    });
+  }
+
+  if (type === 'digital-marketing') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17866862528/XXXXXXXXXXX' // 👈 Digital Marketing conversion ID
+    });
+  }
+</script>
+
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/slick-animation.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/progress-bar.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/mixitup.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    
+  
+    
+</body>
+</html>

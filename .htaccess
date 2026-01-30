@@ -1,0 +1,9 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Set index.html as the default homepage
+DirectoryIndex index.html
+
+# Redirect /index.html to /
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?]
+RewriteRule ^index\.html$ / [R=301,L]

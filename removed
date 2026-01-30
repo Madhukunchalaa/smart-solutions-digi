@@ -1,0 +1,109 @@
+ <!-- service-block -->
+        <div class="service-block col-lg-3 col-sm-6">
+          <div class="inner-box">
+            <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="content-box">
+              <h3 class="title"><a href="page-service-details.html">Digital Marketing</a></h3>
+              <div class="text">Boost your online presence with data-driven SEO and social media strategies to engage your audience and drive growth. </div>
+              <a href="page-service-details.html" data-animation-in="fadeInUp" data-delay-in="0.4" class="theme-btn ser-btn">Learn more <i class="flaticon-arrow-pointing-to-right btn-icon ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- service-block -->
+        <div class="service-block col-lg-3 col-sm-6">
+          <div class="inner-box">
+            <div class="icon-box"><i class="fa-solid fa-palette"></i></div>
+            <div class="content-box">
+              <h3 class="title"><a href="page-service-details.html">Branding Design</a></h3>
+              <div class="text">Elevate your business with expert branding services, crafting compelling identities that resonate with your audience.  
+              </div>
+              <a href="page-service-details.html" data-animation-in="fadeInUp" data-delay-in="0.4" class="theme-btn ser-btn">Learn more <i class="flaticon-arrow-pointing-to-right btn-icon ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- service-block -->
+        <div class="service-block col-lg-3 col-sm-6">
+          <div class="inner-box">
+            <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+            <div class="content-box">
+              <h3 class="title"><a href="page-service-details.html">Web Development</a></h3>
+              <div class="text">Build your online presence with responsive, user-friendly websites that look great and deliver exceptional experiences.</div>
+              <a href="page-service-details.html" data-animation-in="fadeInUp" data-delay-in="0.4" class="theme-btn ser-btn">Learn more <i class="flaticon-arrow-pointing-to-right btn-icon ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- service-block -->
+        <div class="service-block col-lg-3 col-sm-6">
+          <div class="inner-box">
+            <div class="icon-box"><i class="fa-brands fa-android"></i></div>
+            <div class="content-box">
+              <h3 class="title"><a href="page-service-details.html">Apps Development</a></h3>
+              <div class="text">Stay ahead with custom apps designed for performance and seamless functionality across platforms..</div>
+              <a href="page-service-details.html" data-animation-in="fadeInUp" data-delay-in="0.4" class="theme-btn ser-btn">Learn more <i class="flaticon-arrow-pointing-to-right btn-icon ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  * .circle-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+    border-radius: 50%; /* Circular shape */
+    
+    height: 80vh;
+    width: 80vh; /* Ensures a perfect circle */
+    /* border: 3px solid #F94A29; */
+    position: relative; /* Ensure positioning for pseudo-element */
+    overflow: hidden; /* Prevent content from overflowing outside the circle */
+    color: white;
+    background: none; /* Remove direct background image from this element */
+    background: rgba( 255, 255, 255, 0.1 );
+  box-shadow: 0 8px 32px 0 rgba( 249, 74, 1, 0.37 );
+  backdrop-filter: blur( 3px );
+  -webkit-backdrop-filter: blur( 1.5px );
+  
+  border: 1px solid rgba( 249, 74, 41, 1.18 );
+  } */
+  
+  
+  /* .circle-box h3{
+    color: #F94A29;
+    font-weight: bolder;
+    font-size: 5rem;
+    -webkit-text-stroke: 1px black;
+    line-height: 70px;
+    text-shadow: 5px 5px 9px rgba(0, 0, 0, 0.6), -3px -3px 5px rgba(0, 0, 0, 0.3);
+    text-align: left;
+  } */
+  /* .circle-box p{
+    line-height: 30px;
+    color:white;
+    font-weight: bolder;
+    font-size: 30px;
+    -webkit-text-stroke: 0.5px black;
+  }
+  
+  .circle-btns{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    gap:2em;
+  }
+  .circle-btns .theme-btn{
+    border-radius: 50px;
+    width: 30%;
+    padding: 4px;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+  

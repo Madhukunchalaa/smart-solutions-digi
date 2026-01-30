@@ -1,0 +1,816 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+    --primary-color: #F94A29;
+    --dark-text: #111111;
+    --light-text: #555555;
+    --bg-light: #ffffff;
+    --bg-off-white: #f8f9fa;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-text);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--dark-text);
+    letter-spacing: -0.02em;
+}
+
+/* Restore footer fonts to match main theme */
+.main-footer h1, .main-footer h2, .main-footer h3, .main-footer h4, .main-footer h5, .main-footer h6 {
+    font-family: var(--title-font, 'Oswald', sans-serif);
+    letter-spacing: normal;
+}
+
+/* --- Section Defaults --- */
+section {
+    padding: 60px 0;
+    position: relative;
+}
+
+.btn-custom {
+    background-color: var(--dark-text);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+}
+
+.btn-custom:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-custom-outline {
+    background-color: transparent;
+    color: var(--dark-text);
+    border: 2px solid #e1e1e1;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+
+.btn-custom-outline:hover {
+    border-color: var(--dark-text);
+}
+
+/* --- Hero Section (Figma Design) --- */
+.hero-ref {
+    position: relative;
+    background-color: #fff;
+    /* Restore padding to push content below fixed header */
+    padding-top: 80px; 
+    padding-bottom: 0px;
+    overflow: hidden;
+    text-align: left;
+    color: var(--dark-text);
+    /* Remove strict 100vh centering that caused overlap */
+    /* min-height: 90vh; Optional: keep it tall but not forced */
+    display: block; /* Switch back to block to respect padding-top properly */
+}
+
+.hero-ref .auto-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+/* Content Column */
+.hero-ref h1 {
+    color: #111;
+}
+
+.hero-ref h1 span {
+    color: var(--primary-color);
+}
+
+.hero-ref h2 {
+    color: #333; 
+}
+
+.hero-ref p {
+    color: #666;
+}
+
+/* Hero Image styling */
+.hero-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-main-img {
+    width: 129%;
+    max-width: none;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+    transform: translateX(17%);
+    opacity: 0; 
+    animation: customFadeInUp 1s ease-out 0.2s forwards;
+}
+
+/* --- Animations --- */
+@keyframes customFadeInUp {
+    from { opacity: 0; transform: translateY(40px) translateX(17%); }
+    to { opacity: 1; transform: translateY(0) translateX(17%); }
+}
+@keyframes customFadeInUpMobile {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes simpleFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes floatZigZag {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -15px) rotate(2deg); }
+    50% { transform: translate(-5px, -25px) rotate(-2deg); }
+    75% { transform: translate(-15px, -10px) rotate(1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* --- Floating Icons --- */
+.floating-icon {
+    position: absolute;
+    background: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    z-index: 5;
+    opacity: 0;
+    animation: simpleFadeIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards, floatZigZag 6s ease-in-out infinite;
+}
+
+/* Icon Specifics (Node -> JS -> HTML -> React -> CSS + Bootstrap) */
+/* Desktop: Image is shifted right -> Icons must be shifted right (40-90% range) */
+.icon-node { top: 39%; left: 63%; color: #339933; animation-delay: 0s, 0s; }
+.icon-js { top: 16%; left: 65%; color: #F7DF1E; animation-delay: 1.2s, 1.2s; }
+
+.icon-html { top: 9%; left: 75%; color: #E34F26; animation-delay: 0.6s, 0.6s; }
+
+/* Use left for consistency on desktop, reset on mobile */
+.icon-react { top: 6%; left: 91%; right: auto; color: #61DAFB; animation-delay: 1.8s, 1.8s; }
+.icon-css { top: 30%; left: 93%; right: auto; color: #1572B6; animation-delay: 2.4s, 2.4s; }
+
+.icon-bootstrap { top: 26%; left: 80%; right: auto; color: #7952B3; animation-delay: 3s, 3s; }
+
+@media (max-width: 991px) {
+    .hero-ref {
+        background-image: url('../images/hero_laptop_custom.png'); /* Corrected path relative to CSS folder */
+        background-size: cover;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        /* Add overlay to ensure text readability */
+        position: relative;
+    }
+    .hero-ref::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(255, 255, 255, 0.9); /* White overlay */
+        z-index: 0;
+    }
+    .hero-ref .auto-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-main-img {
+        animation-name: customFadeInUpMobile;
+    }
+    .hero-image-wrapper {
+        margin: 40px 0;
+        display: none; /* Hide wrapper on mobile too, strictly */
+    }
+    /* Hide icons on mobile */
+    .floating-icon { display: none !important; }
+}
+
+.hero-ref p {
+    font-size: 1.25rem;
+    color: rgba(255,255,255, 0.8); /* Light text */
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Ecosystems (Services Grid) --- */
+.ecosystems-section {
+    padding-bottom: 30px;
+}
+
+.section-header-ref {
+    margin-bottom: 50px;
+}
+
+.section-header-ref h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.eco-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Added shadow */
+}
+
+.eco-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12); /* Stronger shadow on hover */
+}
+
+.eco-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.eco-card .content {
+    padding: 20px 0;
+}
+
+.eco-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Split Section (Engineering) --- */
+.split-ref {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.split-ref h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.split-ref img {
+    border-radius: 12px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.feature-list-ref li {
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list-ref li i {
+    color: var(--primary-color);
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+/* --- Performance Stats --- */
+.stats-ref {
+    padding: 80px 0;
+}
+
+.stat-item h3 {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+/* --- Bento Grid Layout CSS --- */
+.bento-grid-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.bento-card {
+    background: #fff;
+    border-radius: 30px;
+    padding: 35px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+    border-color: rgba(249, 74, 41, 0.2);
+}
+
+/* Card Variants */
+.bento-large {
+    grid-row: span 2;
+    background: linear-gradient(135deg, #fff 0%, #fff5f2 100%);
+    justify-content: space-between;
+}
+
+.bento-wide {
+    grid-column: span 2;
+}
+
+/* Content Styling */
+.bento-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.bento-card p {
+    color: #666;
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Icon styles */
+.bento-icon-lg img {
+    width: 100%;
+    max-width: 220px;
+    display: block;
+    margin: 20px auto 0;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+    transition: transform 0.5s ease;
+}
+
+.bento-large:hover .bento-icon-lg img {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.bento-content-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.bento-wide .icon-side img {
+    max-width: 140px;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+}
+
+.bento-standard .icon-top {
+    margin-bottom: 20px;
+}
+
+.bento-standard .icon-top img {
+    height: 80px;
+    width: auto;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .bento-grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    .bento-large, .bento-wide {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .bento-content-row {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .bento-card {
+        text-align: center;
+        align-items: center;
+    }
+    .pl-4 { padding-left: 0 !important; margin-top: 20px; }
+    .bento-wide .icon-side img { margin-bottom: 15px; }
+}
+
+/* --- Unique Process Section (Flow) --- */
+.process-unique {
+    padding: 80px 0;
+    background: #fdfdfd;
+    position: relative;
+    overflow: hidden;
+}
+
+.process-unique h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* The Connecting Line (Desktop) */
+.process-line-container {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 1600px; /* Extended to cover all 3 steps */
+    z-index: 0;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.process-path {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 4;
+    stroke-dasharray: 10, 10;
+}
+
+/* Steps Container */
+.process-steps {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.process-step {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+}
+
+/* Alternating Layout */
+.process-step:nth-child(even) {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+.process-step:nth-child(even) .step-text {
+    align-items: flex-end;
+}
+
+/* Step Card Visuals */
+.step-card {
+    flex: 0 0 500px;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    transform: perspective(1000px) rotateY(0deg);
+    transition: all 0.5s ease;
+}
+
+.process-step:hover .step-card {
+     transform: perspective(1000px) rotateY(5deg) translateY(-10px);
+     box-shadow: 0 30px 70px rgba(249, 74, 41, 0.2);
+}
+
+.step-card img {
+    width: 100%;
+    display: block;
+}
+
+/* Step Text */
+.step-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.step-number {
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(249, 74, 41, 0.1);
+    line-height: 1;
+    margin-bottom: -20px;
+    position: relative;
+    z-index: -1;
+}
+
+.step-text h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.step-text p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    max-width: 400px;
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+    .process-path { display: none; }
+    .process-step { 
+        flex-direction: column !important; 
+        text-align: center !important;
+        gap: 30px;
+    }
+    .step-text { align-items: center !important; }
+    .step-card { flex: auto; width: 100%; max-width: 500px; }
+    .process-steps { gap: 60px; }
+}
+
+/* --- CTA --- */
+.cta-ref {
+    background-color: #fff9f7; /* Very light orange tint */
+    padding: 80px 0;
+    text-align: center;
+}
+
+.cta-ref h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.input-group-custom {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.input-group-custom input {
+    width: 100%;
+    padding: 20px 30px;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.input-group-custom button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    border-radius: 50px;
+    background: var(--dark-text);
+    color: #fff;
+    padding: 0 25px;
+    border: none;
+    font-weight: 600;
+}
+
+/* --- Floating Nav (Redesign) --- */
+.page-wrapper {
+    padding-top: 0 !important; /* Override standard padding */
+}
+
+.floating-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 15px 30px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: all 0.3s ease;
+}
+
+/* Sticky state could be handled by JS, but this fixed island works well always */
+
+.floating-nav .nav-logo img {
+    height: 40px;
+}
+
+.floating-nav ul.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.floating-nav ul.nav-links li a {
+    color: var(--dark-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.floating-nav ul.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.floating-nav .nav-cta {
+    background: var(--primary-color);
+    color: #fff !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.floating-nav .nav-cta:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Trigger (Simplified) */
+.mobile-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 991px) {
+    .floating-nav ul.nav-links {
+        display: none; /* Hide links on mobile for now - simplified */
+    }
+    .mobile-toggle {
+        display: block;
+    }
+    .hero-ref {
+        padding-top: 140px; /* Adjust hero padding for nav */
+    }
+}
+/* --- Unique Contact Section (Vibrant Design) --- */
+.unique-contact-section {
+    position: relative;
+    background: linear-gradient(135deg, #ff8c61 0%, #f94a29 100%);
+    padding: 80px 0;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Abstract Background Shapes (Subtle) */
+.shape-circle-1 {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.shape-circle-2 {
+    position: absolute;
+    bottom: -150px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.contact-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.15); /* Softer, deeper shadow */
+    color: #333;
+    position: relative;
+    z-index: 10;
+}
+
+.contact-card h3 {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #222;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+    margin-left: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 2px solid #edf2f7; /* Subtle border */
+    background: #f8f9fa;
+    box-shadow: none;
+    transition: all 0.3s;
+    font-size: 1rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.contact-input:focus {
+    background: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 20px rgba(249, 74, 41, 0.15);
+    outline: none;
+}
+
+.contact-input::placeholder {
+    color: #adb5bd;
+    font-weight: 400;
+}
+
+select.contact-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F94A29' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
+
+.icon-circle {
+    width: 22px; /* Reduced from 32px */
+    height: 22px; /* Reduced from 32px */
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem; /* Reduced font size */
+    margin-right: 20px; /* Specific gap */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.btn-custom {
+    background: var(--primary-color);
+    color: #fff;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    box-shadow: 0 10px 20px rgba(249, 74, 41, 0.3); /* Orange shadow */
+}
+
+.btn-custom:hover {
+    background: var(--dark-text);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Scroll Offset for Fixed Nav */
+#form {
+    scroll-margin-top: 150px;
+}
+
+/* Bento 'Stick to Wall' Animation Style */
+.bento-hidden {
+    opacity: 0;
+    transform: perspective(2000px) rotateX(15deg) scale(0.9) translateY(50px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+.bento-visible {
+    opacity: 1;
+    transform: perspective(2000px) rotateX(0deg) scale(1) translateY(0);
+}
+
+/* Footer Fix for Web Dev Page */
+.footer-style-one .widgets-section {
+    padding-top: 50px;
+}
