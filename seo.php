@@ -1,5 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once 'db_config.php';
 
     // Collect and validate form data
     $name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
@@ -10,6 +11,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $service = isset($_POST['service']) ? htmlspecialchars($_POST['service']) : '';
     $service_type = isset($_POST['service_type']) ? htmlspecialchars($_POST['service_type']) : '';
     $messageContent = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
+
+    // Database Insertion
+    $source = "SEO";
+    $service_interest = $service . ($service_type ? " - " . $service_type : "");
+
+    $stmt = $conn->prepare("INSERT INTO leads (source, name, email, phone, company_name, location, service_interest, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssss", $source, $name, $email, $phone, $company_name, $location, $service_interest, $messageContent);
+    $stmt->execute();
+    $stmt->close();
 
     // Basic validation
     if (!$email) {
