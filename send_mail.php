@@ -6,10 +6,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = isset($_POST['form_email']) ? filter_var($_POST['form_email'], FILTER_VALIDATE_EMAIL) : '';
     $service = isset($_POST['service']) ? htmlspecialchars($_POST['service']) : '';
     $phone = isset($_POST['form_phone']) ? htmlspecialchars($_POST['form_phone']) : '';
+    $company_name = isset($_POST['form_company']) ? htmlspecialchars($_POST['form_company']) : '';
+    $location = isset($_POST['form_location']) ? htmlspecialchars($_POST['form_location']) : '';
     $messageContent = isset($_POST['form_message']) ? htmlspecialchars($_POST['form_message']) : '';
 
     // Basic validation
-   
+
 
     if (!$email) {
         echo "Invalid email address.";
@@ -75,6 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p><strong>Name:</strong> $name</p>
         <p><strong>Email:</strong> $email</p>
         <p><strong>Phone:</strong> $phone</p>
+        <p><strong>Company Name:</strong> $company_name</p>
+        <p><strong>Location:</strong> $location</p>
         <p><strong>Service Selected:</strong> $service</p>
         <div class='details'>
             <p><strong>Message:</strong><br>$messageContent</p>
@@ -84,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </html>
 ";
 
-   $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= "From: $name <contact@smartsolutionsdigi.com>" . "\r\n"; // Use domain email as sender to prevent spam flagging
     $headers .= "Reply-To: $email" . "\r\n";

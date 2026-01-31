@@ -1,10 +1,11 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $name     = htmlspecialchars(trim($_POST['name'] ?? ''));
-    $phone    = htmlspecialchars(trim($_POST['phone'] ?? ''));
+    $name = htmlspecialchars(trim($_POST['name'] ?? ''));
+    $phone = htmlspecialchars(trim($_POST['phone'] ?? ''));
     $business = htmlspecialchars(trim($_POST['business'] ?? ''));
-    $budget   = htmlspecialchars(trim($_POST['budget'] ?? ''));
+    $location = htmlspecialchars(trim($_POST['location'] ?? '')); // Added location
+    $budget = htmlspecialchars(trim($_POST['budget'] ?? ''));
 
     $emailRaw = $_POST['email'] ?? '';
     $email = filter_var($emailRaw, FILTER_VALIDATE_EMAIL);
@@ -22,10 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <p><strong>Email:</strong> {$email}</p>
         <p><strong>Phone:</strong> {$phone}</p>
         <p><strong>Business:</strong> {$business}</p>
+        <p><strong>Location:</strong> {$location}</p>
         <p><strong>Budget:</strong> {$budget}</p>
     </body></html>";
 
-    $headers  = "MIME-Version: 1.0\r\n";
+    $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     $headers .= "From: Smart Solutions <contact@smartsolutionsdigi.com>\r\n";
     $headers .= "Reply-To: {$email}\r\n";

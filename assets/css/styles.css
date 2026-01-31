@@ -8792,6 +8792,7 @@ Section Title
   color: var(--theme-color-light);
   font-family: var(--text-font);
   opacity: 0.8;
+  text-align: center;
 }
 .footer-bottom .copyright-text a {
   color: inherit;

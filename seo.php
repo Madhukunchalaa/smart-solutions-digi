@@ -5,6 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
     $email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : '';
     $phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
+    $company_name = isset($_POST['company_name']) ? htmlspecialchars($_POST['company_name']) : '';
+    $location = isset($_POST['location']) ? htmlspecialchars($_POST['location']) : '';
     $service = isset($_POST['service']) ? htmlspecialchars($_POST['service']) : '';
     $service_type = isset($_POST['service_type']) ? htmlspecialchars($_POST['service_type']) : '';
     $messageContent = isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '';
@@ -71,6 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p><strong>Name:</strong> $name</p>
         <p><strong>Email:</strong> $email</p>
         <p><strong>Phone:</strong> $phone</p>
+        <p><strong>Company Name:</strong> $company_name</p>
+        <p><strong>Location:</strong> $location</p>
         <p><strong>Service Page:</strong> $service</p>
         <p><strong>Service Interest:</strong> $service_type</p>
         <div class='details'>
