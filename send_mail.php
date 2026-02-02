@@ -13,8 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Database Insertion
     $source = "Contact / App Dev";
-    $stmt = $conn->prepare("INSERT INTO leads (source, name, email, phone, company_name, location, service_interest, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssss", $source, $name, $email, $phone, $company_name, $location, $service, $messageContent);
+    $budget = null;
+    $stmt = $conn->prepare("INSERT INTO leads (source, name, email, phone, company_name, location, service_interest, budget, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $source, $name, $email, $phone, $company_name, $location, $service, $budget, $messageContent);
     $stmt->execute();
     $stmt->close();
 

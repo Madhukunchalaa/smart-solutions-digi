@@ -15,9 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database Insertion
     $source = "SEO";
     $service_interest = $service . ($service_type ? " - " . $service_type : "");
+    $budget = null;
 
-    $stmt = $conn->prepare("INSERT INTO leads (source, name, email, phone, company_name, location, service_interest, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssss", $source, $name, $email, $phone, $company_name, $location, $service_interest, $messageContent);
+    $stmt = $conn->prepare("INSERT INTO leads (source, name, email, phone, company_name, location, service_interest, budget, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $source, $name, $email, $phone, $company_name, $location, $service_interest, $budget, $messageContent);
     $stmt->execute();
     $stmt->close();
 

@@ -10,15 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Database Insertion
     $source = "Digital Marketing Strategy";
-    $service_interest = "Budget: " . $budget;
+    $service_interest = "Strategy Session"; // Fixed description since budget is separate
 
-    $stmt = $conn->prepare("INSERT INTO leads (source, name, email, phone, company_name, location, service_interest, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO leads (source, name, email, phone, company_name, location, service_interest, budget, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     // Note: 'business' field mapped to 'company_name', message is empty here but table has message column. 
     // Wait, form.php doesn't seem to have a message input in the collection part?
     // Checking form.php content again... it collects name, phone, business, location, budget. No message variable collected.
     // I will pass empty string for message.
     $empty_msg = "";
-    $stmt->bind_param("ssssssss", $source, $name, $email, $phone, $business, $location, $service_interest, $empty_msg);
+    $stmt->bind_param("sssssssss", $source, $name, $email, $phone, $business, $location, $service_interest, $budget, $empty_msg);
     $stmt->execute();
     $stmt->close();
 
