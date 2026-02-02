@@ -2501,3 +2501,39 @@ body.mobile-menu-visible .mobile-menu .menu-backdrop {
         font-size: 28px !important;
     }
 }
+/* Footer Typography Fixes */
+.main-footer {
+    font-family: var(--text-font);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.main-footer h1, 
+.main-footer h2, 
+.main-footer h3, 
+.main-footer h4, 
+.main-footer h5, 
+.main-footer h6,
+.main-footer .widget-title,
+.main-footer .title {
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.main-footer a {
+    font-family: var(--text-font);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-bottom {
+    font-family: var(--text-font);
+    font-size: 14px;
+}
+
+.footer-widget .text {
+    font-family: var(--text-font);
+    color: #b0b0b0;
+}
