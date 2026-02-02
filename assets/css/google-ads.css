@@ -2537,3 +2537,44 @@ body.mobile-menu-visible .mobile-menu .menu-backdrop {
     font-family: var(--text-font);
     color: #b0b0b0;
 }
+
+/* Custom Double Circle Bullet */
+.custom-bullet {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.custom-bullet::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    background-color: var(--google-primary, #F94A29);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.custom-bullet::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 7px;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background: transparent;
+    z-index: 2;
+}
+
+.solution-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
