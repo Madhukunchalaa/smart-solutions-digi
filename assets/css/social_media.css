@@ -3,7 +3,7 @@
     --color-text: #1a1a1a;
     --color-accent: #ff4522; /* Vibrant Orange/Red */
     --color-bg-light: #ffece6; /* Light pinkish bg for hero */
-    --font-main: 'Inter', sans-serif;
+    --font-main: 'Raleway', sans-serif;
     --font-heading: 'Oswald', sans-serif;
 }
 
@@ -27,7 +27,12 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: #000
     box-shadow: 0 4px 15px rgba(255, 69, 34, 0.3);
     text-transform: capitalize; /* "Get Started" in ref is Title Case */
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 69, 34, 0.4); }
+.btn-primary:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(255, 69, 34, 0.4); 
+    background: #000;
+    color: var(--color-accent);
+}
 
 /* Container */
 .container, .auto-container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
@@ -92,7 +97,12 @@ html {
 .nav-links a { text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; }
 .nav-links a:hover { color: var(--color-accent); }
 .nav-btn { background: var(--color-accent); color: #fff; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(255, 69, 34, 0.2); transition: all 0.3s; }
-.nav-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 15px rgba(255, 69, 34, 0.3); }
+.nav-btn:hover { 
+    transform: translateY(-1px); 
+    box-shadow: 0 6px 15px rgba(255, 69, 34, 0.3); 
+    background: #000;
+    color: var(--color-accent);
+}
 
 
 .hamburger {
@@ -995,6 +1005,9 @@ footer a:hover { color: #fff; }
     color: #fff;
     margin-bottom: 0;
     line-height: 1.2;
+    overflow-wrap: break-word; /* Prevents overlap */
+    word-break: break-word;    /* Fallback */
+    max-width: 100%;           /* Ensures it respects container */
 }
 .contact-widget .widget-content .content-box .title a { color: #fff; text-decoration: none; }
 
