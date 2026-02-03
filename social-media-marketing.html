@@ -12,6 +12,10 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- Core Styles -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    
     <style>
         :root {
             --color-bg: #fff;
@@ -75,7 +79,21 @@
         .nav-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 15px rgba(255, 69, 34, 0.3); }
 
 
-        /* HERO SECTION */
+        .hamburger {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
         .hero { 
             background: linear-gradient(180deg, rgba(249, 74, 41, 0.15) 0%, rgba(249, 74, 41, 0.03) 100%);
             padding: 80px 0 120px; 
@@ -133,7 +151,7 @@
         
         /* Central Image Area */
         .central-img {
-            width: 290px; /* Increased slightly */
+            width: 350px; /* Increased slightly */
             max-width: 100%;
             height: auto;
             position: absolute; /* Force absolute center */
@@ -156,11 +174,23 @@
         /* Orbit Rings */
         .orbit-ring {
             position: absolute;
-            border: 3px dashed #ffa08a; /* Visible dash color */
+            border: 1px dashed #FF6B4A; /* Thinner, visible dash color */
             border-radius: 50%;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             /* z-index: 1; */ /* Let z-index be handled by specific rings if needed */
+        }
+        
+        .central-bg-circle {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px; /* Base size */
+            height: 200px;
+            background: #FF4522; /* Vibrant Orange */
+            border-radius: 50%;
+            z-index: 4; /* Behind image, above background */
+            box-shadow: 0 10px 30px rgba(255, 69, 34, 0.2);
         }
 
         .orbit-inner { 
@@ -229,13 +259,121 @@
 
         /* Responsive */
         @media(max-width: 992px) {
-            .hero-container { flex-direction: column; text-align: center; }
+            /* Navbar Transparent Overlay Fix */
+            .site-header { 
+                position: absolute; /* Float over content like desktop */
+                top: 0; 
+                background: transparent; 
+                box-shadow: none; 
+                padding: 10px 0;
+            } 
+            
+            /* Push hero down so content isn't covered, but background extends to top */
+            .hero { 
+                padding: 100px 0 60px; /* Top padding to clear the absolute header */
+            } 
+            
+            /* Navbar Mobile Styles */
+            .navbar { 
+                flex-direction: row; 
+                justify-content: space-between; 
+                padding: 0 20px;
+                height: auto;
+                border-radius: 0;
+                background: transparent; /* No white box */
+                box-shadow: none;
+            }
+            .nav-logo img { height: 35px; }
+            
+            /* Hamburger Button */
+            .hamburger { display: block; }
+            
+            /* Links Hidden by Default - Keep White BG for Dropdown */
+            .nav-links {
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                text-align: center;
+                gap: 20px;
+                z-index: 1000;
+                border-top: 1px solid #eee; /* Divider */
+            }
+            .nav-links.active { display: flex; } /* Shown when active */
+            
+            
+            .hero-container { flex-direction: column-reverse; text-align: center; margin-top: 0; gap: 30px; }
             .hero-text { margin: 0 auto; padding-right: 0; width: 100%; flex: auto; }
-            .hero-title { font-size: 2.8rem; }
-            .orbit-system { transform: scale(0.85); margin-top: 30px; }
-            .hero-visual { padding-right: 0; justify-content: center; }
-            .navbar { flex-direction: column; gap: 20px; height: auto; border-radius: 20px; }
-            .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+            .hero-title { font-size: 2.2rem; line-height: 1.1; margin-bottom: 20px; }
+            .hero-desc { margin: 0 auto 30px; font-size: 1rem; max-width: 100%; padding: 0 15px; }
+            .tag-badge { margin-bottom: 20px; }
+            
+            /* Reduced Section Padding Globally for Mobile */
+            .problem-section, 
+            .brand-section, 
+            .services-section, 
+            .contact-section, 
+            .process-section, 
+            .faq-section { 
+                padding: 40px 0 !important; 
+            }
+            
+            /* Solar System Visibility Fix */
+            .hero-visual { 
+                height: auto; 
+                transform: none; 
+                justify-content: center; 
+                width: 100%;
+                display: block; /* Ensure it takes space */
+                margin-bottom: 20px;
+                overflow: visible; /* Ensure nothing is clipped */
+            }
+
+            .orbit-system { 
+                transform: none; 
+                margin: 0 auto; 
+                width: 320px; /* Main container width fixed for mobile */
+                height: 320px; 
+                padding: 0;
+                position: relative;
+            }
+            
+            /* Enhanced Orbit Visibility */
+            /* Using solid 2px and brand color to ensure visibility */
+            /* Using z-index to ensure stacking order */
+            .orbit-outer { 
+                width: 320px; 
+                height: 320px; 
+                border: 2px dashed #FF4522; /* Darker & Thicker */
+                z-index: 1;
+            }
+            .orbit-inner { 
+                width: 230px; /* Slightly Reduced to increase gap from outer */
+                height: 230px; 
+                border: 2px dashed #FF4522; /* Darker & Thicker */
+                z-index: 5;
+            } 
+            
+            .central-bg-circle { width: 130px; height: 130px; } 
+            
+            /* Reduced Image Size to Reveal Inner Orbit */
+            .central-img { 
+                width: 150px; 
+                max-width: none; 
+                z-index: 6; 
+            } 
+            
+            .contact-box { padding: 30px 20px; }
+        }
+
+        @media(max-width: 400px) {
+            .hero-title { font-size: 1.8rem; }
+            .orbit-system { transform: scale(0.9); } /* Scale down slightly more for very small screens */
         }
         
         /* Rest of sections - Basic styling to keep page functional */
@@ -306,7 +444,7 @@
 
         /* BRAND CHOICE SECTION */
 
-        .row { display: flex; align-items: center; gap: 60px; }
+        .custom-row { display: flex; align-items: center; gap: 60px; }
         .check-list { list-style: none; margin-top: 30px; padding: 0; }
         .check-list li { margin-bottom: 18px; display: flex; align-items: center; gap: 12px; font-weight: 600; font-family: var(--font-heading); font-size: 1.05rem; letter-spacing: 0.5px; }
         .check-icon { color: var(--color-accent); background: #fff0eb; border-radius: 50%; padding: 6px; font-size: 0.8rem; }
@@ -343,7 +481,7 @@
         .service-card:hover::after {
             width: 100%;
         }
-        .service-card:hover { transform: translateY(-5px); border-color: transparent; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .service-card:hover { transform: translateY(-5px); border-color: transparent; box-shadow: 0 10px 30px rgba(254, 80, 0, 0.15); }
         .service-icon-box { 
             width: 55px; height: 55px; 
             background: var(--color-accent); 
@@ -442,7 +580,7 @@
 
         /* PROCESS SECTION */
         /* PROCESS SECTION - TIMELINE REDESIGN */
-        .process-section { padding: 100px 0; background: #fffcfb; text-align: center; overflow: hidden; }
+        .process-section { padding: 100px 0; background: #FFF5F2; text-align: center; overflow: hidden; }
         .process-steps { 
             max-width: 1000px; 
             margin: 60px auto 0; 
@@ -493,7 +631,7 @@
             background: #fff; 
             padding: 35px; 
             border-radius: 12px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05); 
+            box-shadow: 0 15px 35px rgba(130, 80, 255, 0.12); 
             text-align: left;
             position: relative;
             transition: transform 0.3s;
@@ -661,15 +799,17 @@
         .faq-content { padding-top: 10px; color: #666; font-size: 1rem; line-height: 1.6; }
 
         /* FOOTER */
-        footer { background: #111; color: #fff; padding: 70px 0 40px; text-align: center; }
-        footer a { color: #888; text-decoration: none; margin: 0 15px; transition: color 0.3s; font-weight: 500; }
+        /* REMOVING GLOBAL TEXT ALIGN CENTER WHICH BROKE THE FOOTER */
+        footer { background: #111; color: #fff; padding: 0; text-align: left; } 
+        /* Reset footer link styles in case they interfere, but main-footer classes should handle it */
+        footer a { text-decoration: none; transition: color 0.3s; }
         footer a:hover { color: #fff; }
 
         @media(max-width: 768px) {
-            .row { flex-direction: column; text-align: center; }
+            .custom-row { flex-direction: column; text-align: center; }
             .orbit-system { width: 100%; max-width: 350px; height: 350px; }
             .orbit-inner, .orbit-outer { width: 100%; height: 100%; }
-            .central-circle { width: 250px; height: 250px; }
+            .central-img { width: 250px; } /* Adjust central image for mobile */
             .contact-box { margin: 30px auto 0; }
             .step-content { text-align: left !important; padding-right: 30px !important; }
             .process-step { flex-direction: column; align-items: flex-start; }
@@ -679,6 +819,291 @@
             .si-twitter { left: 40px; top: 20px; }
             .si-snap { bottom: -10px; left: 80px; }
         }
+        @media(max-width: 400px) {
+            .orbit-system { max-width: 280px; height: 280px; }
+            .central-img { width: 200px; }
+            .hero-title { font-size: 2rem; }
+            .contact-box { padding: 30px 20px; }
+            .white-pill-btn { padding: 15px 20px; font-size: 1rem; }
+        }
+        
+        /* ==================================================================
+            Main Footer (Ported from styles.css)
+        ================================================================== */
+        .main-footer {
+          position: relative;
+          background-color: var(--Text-Heading-Color, #202020); /* Fallback */
+          /* background-color: red;  <-- was in source, ignoring */
+        }
+        /* Grid Simulation for Footer */
+        .footer-row { display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; }
+        .footer-column { 
+            position: relative; 
+            width: 100%; 
+            padding-right: 15px; 
+            padding-left: 15px; 
+            flex: 0 0 100%; 
+            max-width: 100%; 
+            margin-bottom: 30px;
+        }
+        @media (min-width: 576px) { .footer-column { flex: 0 0 50%; max-width: 50%; } }
+        @media (min-width: 992px) { .footer-column { flex: 0 0 25%; max-width: 25%; margin-bottom: 0; } }
+
+        .main-footer .widgets-section {
+          position: relative;
+          padding: 100px 0 10px;
+        }
+        .main-footer .footer-widget {
+          position: relative;
+        }
+        .main-footer .widget-title {
+          position: relative;
+          color: #fff;
+          margin-bottom: 45px;
+          font-size: 25px;
+          font-weight: 500;
+          text-transform: uppercase;
+          line-height: 35px;
+          padding-left: 10px;
+          font-family: var(--font-heading);
+        }
+        .main-footer .widget-title::before {
+          content: "";
+          position: absolute;
+          top: 9px;
+          left: 0;
+          width: 3px;
+          height: 21px;
+          background-color: var(--color-accent); 
+        }
+        
+        /* Force Left Align for all Footer Content */
+        .main-footer .footer-widget, 
+        .main-footer .widget-content,
+        .main-footer .text,
+        .main-footer h4,
+        .main-footer ul,
+        .main-footer li {
+            text-align: left !important;
+        }
+        
+        .main-footer .widget-content .text {
+          color: #fff; /* theme-color-light */
+          opacity: 0.8;
+          font-size: 16px; 
+          line-height: 26px;
+          margin-bottom: 20px;
+        }
+
+        /* User Links */
+        .user-links { position: relative; list-style: none; padding: 0; }
+        .user-links li {
+          position: relative;
+          font-size: 16px;
+          line-height: 35px;
+          color: #fff; /* theme-color-light */
+          opacity: 0.8;
+          font-family: var(--font-main);
+          font-weight: 600;
+          margin-bottom: 10px;
+          padding-left: 0;
+        }
+        /* FontAwesome Arrow Simulation */
+        .user-links li:before {
+            /* Since FA classes might differ or not load via content prop easily without correct font-family, 
+               we use a safe alternative or rely on the linked FA CSS */
+            font-family: "Font Awesome 6 Pro";
+            content: "\f061"; /* Arrow Right */
+            position: absolute; left: 0; top: 0; font-size: 14px; color: #333F4D;
+            display: none; /* Hidden in styles.css style-two but let's check */
+        }
+        /* Style Two overrides from styles.css */
+        .user-links.style-two li { padding-left: 0; }
+        .user-links.style-two li:before { display: none; }
+        
+        .user-links li a {
+          position: relative;
+          display: inline-block;
+          color: inherit;
+          transition: all 300ms ease;
+          text-decoration: none;
+        }
+        .user-links li a:hover { color: #FFFFFF; opacity: 1; }
+        .user-links li a:before {
+          position: absolute;
+          left: 0;
+          bottom: 3px;
+          width: 0;
+          height: 1px;
+          background-color: var(--color-accent);
+          content: "";
+          transition: all 300ms ease;
+        }
+        .user-links li a:hover:before { width: 100%; }
+
+        /* Contact Widget Styles */
+        .contact-widget .logo-box { margin-bottom: 40px; }
+        .contact-widget .widget-content .content-box {
+          margin-bottom: 20px;
+          position: relative;
+          padding-left: 66px; /* Space for icon */
+          display: block; /* Reset flex */
+        }
+        .contact-widget .widget-content .content-box .icon-box {
+          position: absolute;
+          top: 0; left: 0;
+          width: 53px; height: 53px;
+          line-height: 52px;
+          text-align: center;
+          background-color: rgba(255,255,255,0.05); /* Lighter bg for dark theme compatibility */
+          transition: all 0.3s ease;
+          margin: 0;
+          border-radius: 5px;
+        }
+        .contact-widget .widget-content .content-box:hover .icon-box {
+          background: var(--color-accent);
+        }
+        .contact-widget .widget-content .content-box:hover .icon-box i {
+          color: #fff;
+          transform: rotate(-360deg);
+        }
+        .contact-widget .widget-content .content-box .icon-box i {
+            color: var(--color-accent);
+            font-size: 22px;
+            display: inline-block; /* Ensure rotate works */
+            transition: all 0.3s ease;
+        }
+        .contact-widget .widget-content .content-box span {
+          font-size: 14px;
+          color: #fff;
+          opacity: 0.8;
+          font-weight: 500;
+          line-height: 22px;
+          display: block;
+          margin-bottom: 4px;
+        }
+        .contact-widget .widget-content .content-box .title {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+        .contact-widget .widget-content .content-box .title a { color: #fff; text-decoration: none; }
+        
+        .contact-widget .social-icons {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          align-items: center !important;
+          border-top: 1px solid #797979;
+          padding-top: 25px;
+          margin-top: 27px;
+          gap: 12px !important;
+          padding-left: 0 !important;
+          margin-bottom: 0 !important;
+        }
+        .contact-widget .social-icons li { 
+            margin: 0 !important; 
+            padding: 0 !important;
+            list-style: none !important; 
+            display: block !important;
+        }
+        .contact-widget .social-icons li a {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: 42px !important; /* Slightly smaller to match standard better */
+          height: 42px !important;
+          border: 1px solid #797979;
+          color: #797979;
+          background: transparent;
+          border-radius: 50% !important;
+          transition: all 0.3s ease;
+          font-size: 16px !important; /* Adjusted for better proportion */
+          line-height: 1 !important;
+          padding: 0 !important;
+          text-align: center !important;
+          text-decoration: none !important;
+        }
+        .contact-widget .social-icons li a i,
+        .contact-widget .social-icons li a svg {
+           margin: 0 !important;
+           padding: 0 !important;
+           width: auto !important;
+           height: auto !important;
+           line-height: 1 !important;
+           display: inline-block !important;
+           transform: none !important; /* Prevent global rotations */
+        }
+        .contact-widget .social-icons li a:hover {
+          background-color: var(--color-accent) !important;
+          border-color: var(--color-accent) !important;
+          color: #fff !important;
+          transform: translateY(-3px);
+        }
+        
+        /* Footer Bottom */
+        .footer-bottom {
+          position: relative;
+          z-index: 3;
+          background: #282828;
+          padding: 17px 0;
+          border-top: none; /* Reset */
+        }
+        .footer-bottom .copyright-text {
+          color: #fff;
+          opacity: 0.8;
+          text-align: center;
+          font-size: 16px;
+        }
+        
+        /* Disclaimer */
+        .footer-disclaimer { 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            padding: 20px 0; 
+            margin-top: 30px; 
+            color: #ccc; 
+            font-size: 14px; 
+            line-height: 1.6; 
+        }
+        .footer-disclaimer h6 { color: #fff; font-size: 16px; margin-bottom: 10px; }
+    </style>
+    <style>
+        /* CRITICAL FOOTER FIXES */
+        body footer, 
+        body .main-footer, 
+        body .main-footer .footer-column, 
+        body .main-footer .footer-widget,
+        body .main-footer .widget-content,
+        body .main-footer .text,
+        body .main-footer h4,
+        body .main-footer ul,
+        body .main-footer li,
+        body .main-footer a {
+             text-align: left !important;
+        }
+        body .main-footer .footer-row {
+             justify-content: flex-start !important;
+        }
+        body .main-footer .footer-bottom, 
+        body .main-footer .footer-bottom .copyright-text {
+             text-align: center !important;
+        }
+        body .main-footer .widget-title::before {
+             left: 0 !important;
+        }
+        /* Reset margins/paddings that might cause centering */
+        body .main-footer ul, body .main-footer li {
+             margin-left: 0 !important;
+             padding-left: 0 !important;
+        }
+        /* Ensure Icons are square as per SEO design */
+        body .contact-widget .widget-content .content-box .icon-box {
+             background-color: #4c4c4c !important; /* Force Grey Box */
+             width: 53px !important;
+             height: 53px !important;
+             border-radius: 0 !important; /* Square */
+        }
     </style>
 </head>
 <body>
@@ -687,8 +1112,16 @@
     <div class="site-header">
         <nav class="navbar">
             <div class="nav-logo">
-                <img src="assets/images/Asset 1.png" alt="Smart Solutions">
+                <a href="index.html"><img src="assets/images/Asset 1.png" alt="Smart Solutions"></a>
             </div>
+            
+            <!-- Hamburger Button -->
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -711,8 +1144,11 @@
             
             <div class="hero-visual">
                 <div class="orbit-system">
+                    <!-- Central Background Circle -->
+                    <div class="central-bg-circle"></div>
+                    
                     <!-- Central Image (New Upload) -->
-            <img src="assets/images/social-media-banner-woman-v4.png" alt="Social Media Marketing" class="central-img">
+                    <img src="assets/images/social-media-banner-woman-v4.png" alt="Social Media Marketing" class="central-img">
         <!-- Orbits & Icons Container -->
                     
                     <!-- Outer Ring (YouTube, Snapchat, BlackPlus) -->
@@ -759,7 +1195,7 @@
 
     <!-- BRAND SECTION -->
     <section class="brand-section">
-        <div class="container row" style="align-items: center;">
+        <div class="container custom-row" style="align-items: center;">
             <div style="flex: 1; padding-right: 50px;" class="brand-content">
                 <h2>Why Brands Choose <span class="highlight">Smart Solutions</span></h2>
                 <ul class="check-list">
@@ -806,24 +1242,29 @@
         <h2>Social Media Services <span class="highlight">Designed for Growth</span></h2>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon-box"><i class="fas fa-chess-knight"></i></div>
+                <div class="service-icon-box"><i class="fas fa-bullseye"></i></div>
                 <h4>Content Strategy & Planning</h4>
-                <p style="font-size: 0.9rem; color: #666;">We create a roadmap that aligns with your business goals and speaks to your audience.</p>
+                <p style="font-size: 0.9rem; color: #666;">We understand your audience first, then create content that speaks their language and builds trust.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon-box"><i class="fas fa-paint-brush"></i></div>
+                <div class="service-icon-box"><i class="fas fa-photo-video"></i></div>
                 <h4>Creative Content Creation</h4>
-                <p style="font-size: 0.9rem; color: #666;">Eye-catching graphics, videos, and copy that stop the scroll and drive engagement.</p>
+                <p style="font-size: 0.9rem; color: #666;">Scroll-stopping visuals, reels, carousels, and copy that feels authentic to your brand.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon-box"><i class="fas fa-bullhorn"></i></div>
-                <h4>Campaign Driven Reach</h4>
-                <p style="font-size: 0.9rem; color: #666;">Paid ads management to amplify your message and reach new potential customers.</p>
+                <h4>Campaign-Driven Reach</h4>
+                <p style="font-size: 0.9rem; color: #666;">Focused social campaigns designed to drive enquiries, website visits, and real action.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon-box"><i class="fas fa-users"></i></div>
                 <h4>Community Building</h4>
-                <p style="font-size: 0.9rem; color: #666;">We nurture your community, responding to comments and building brand loyalty.</p>
+                <p style="font-size: 0.9rem; color: #666;">Strengthening relationships through consistent interaction and meaningful engagement.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon-box"><i class="fas fa-chart-line"></i></div>
+                <h4>Performance Tracking</h4>
+                <p style="font-size: 0.9rem; color: #666;">Clear visibility into what's driving results and how improvements are made.</p>
             </div>
         </div>
     </section>
@@ -932,7 +1373,7 @@
         <img src="assets/images/floating-cube.png" class="floating-cube cube-2" alt="">
         <img src="assets/images/floating-cube.png" class="floating-cube cube-3" alt="">
 
-        <div class="container row" style="align-items: center;">
+        <div class="container custom-row" style="align-items: center;">
             <!-- Left Side -->
             <div style="flex: 1;" class="contact-left">
                 <h2>Let's Make Social Media Work for You</h2>
@@ -1005,17 +1446,140 @@
         </details>
     </section>
 
-    <footer>
-        <div class="container">
-            <img src="assets/images/footerlogo.png" alt="Smart Solutions" height="30" style="opacity: 0.9; margin-bottom: 20px;">
-             <div style="display: flex; justify-content: center; gap: 20px; font-size: 0.9rem; color: #888;">
-                <a href="#">Services</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-            </div>
-            <p style="margin-top: 30px; font-size: 0.8rem; color: #555;">&copy; 2026 StudioX AI. All rights reserved.</p>
-        </div>
-    </footer>
+  <footer class="main-footer footer-style-one">
+    <!-- Widgets Section -->
+    <div class="widgets-section">
+      <div class="auto-container">
+        <div class="row">
+          <!-- Footer COlumn -->
+          <div class="footer-column col-lg-3 col-sm-6 wow fadeInLeft" data-wow-delay="400ms">
+            <div class="footer-widget contact-widget">
+              <div class="logo-box">
+                <div class="logo"><a href="index.html"><img src="assets/images/footerlogo.png" alt="" title="Tronis"></a></div>
+              </div>
+              <div class="widget-content">
+                <div class="content-box">
+                  <div class="icon-box">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <span>Mail us</span>
+                  <h6 class="title"><a href="mailto:contact@smartsolutionsdigi.com"style="font-size: 15px;">contact@smartsolutionsdigi.com
 
+                  </a></h6>
+                </div>
+                <div class="content-box">
+                  <div class="icon-box">
+                   <a href="tel:+91 6281939690"><i class="fa-solid fa-phone"></i></a> 
+                  </div>
+                  
+                  <span>Call</span>
+                  <h6 class="title"><a href="tel:+916281939690"style="font-size: 15px;">+91 628 193 9690 
+
+                  </a></h6>
+                </div> 
+                <ul class="social-icons">
+                      <li><a href="https://x.com/smartsolnsdigi" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                  <li><a href="https://www.facebook.com/smartsolutionsdigi/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                  <li><a href="https://www.linkedin.com/company/smartsolutionsdigi" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.instagram.com/smartsolutionsdigi/" target="_blank" ><i class="fa-brands fa-instagram"></i></a></li>
+ 
+ 
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Footer COlumn -->
+          <div class="footer-column col-lg-3 col-sm-6 wow fadeInLeft" data-wow-delay="600ms">
+            <div class="footer-widget links-widget pl-lg-30 pl-md--0">
+              <h4 class="widget-title">Our Services</h4>
+              <div class="widget-content">
+                <ul class="user-links style-two">
+                  <li><a href="#">Digital marketing</a></li>
+                  <li><a href="#">Search Engine Optimization</a></li>
+                  <li><a href="#">Pay Per Click</a></li>
+                  <li><a href="#">Web development</a></li>
+                  <li><a href="#">App Development</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Footer COlumn -->
+          <div class="footer-column col-lg-3 col-sm-6 wow fadeInLeft" data-wow-delay="800ms">
+            <div class="footer-widget links-widget two pl-lg-30 pl-md--0">
+              <h4 class="widget-title">Useful Link</h4>
+              <div class="widget-content">
+                <ul class="user-links style-two">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <!-- <li><a href="#">Our Team</a></li> -->
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Footer COlumn -->
+          <div class="footer-column col-lg-3 col-sm-6 wow fadeInLeft" data-wow-delay="1000ms">
+            <div class="footer-widget about-widget">
+              <h4 class="widget-title">ADDRRESS</h4>
+              <div class="text">iSprout - Modern Profound Techpark, 2nd Floor, Survey No. 12, Office No. 201, Kondapur, Hyderabad, Telangana, 500032</div>
+              <div class="subscribe-form-two">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15224.212025151264!2d78.3704337!3d17.4571769!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93cf9bc32c83%3A0x1e85e5cc49998439!2sProfound%20Builders!5e0!3m2!1sen!2sin!4v1737441443587!5m2!1sen!2sin" width="240" height="120" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!--  Footer Bottom -->
+   <div class="footer-bottom">
+  <div class="auto-container">
+    <div class="inner-container">
+      <div class="copyright-text">
+        © All rights reserved by Smart Solutions |
+        <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="scroll-to-top scroll-to-target arrow-btn" data-target="html" ><i class="fa-sharp fa-solid fa-arrow-up"></i></div>
+  </footer>
+
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/slick.min.js"></script>
+<script src="assets/js/slick-animation.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/progress-bar.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/mixitup.js"></script>
+<script src="assets/js/script.js"></script>
+<!-- jQuery is already loaded in head in index.html, but let's be safe and check if we need it here. index.html has it in head AND at bottom? -->
+<script src="assets/js/jquery.js"></script>
+
+<script>
+    // Simple Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    });
+</script>
 </body>
 </html>

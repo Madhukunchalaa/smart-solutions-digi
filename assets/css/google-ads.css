@@ -2576,5 +2576,53 @@ body.mobile-menu-visible .mobile-menu .menu-backdrop {
 .solution-list li {
     display: flex;
     align-items: center;
+
     margin-bottom: 20px;
+}
+
+/* Global Typography Enforcement */
+body {
+    font-family: var(--text-font);
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--title-font);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Footer Contact Widget Styles */
+.footer-widget .list-style-one {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-widget .list-style-one li {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    line-height: 28px;
+    color: #eef0f6; /* Light text */
+    margin-bottom: 12px;
+    padding-left: 35px;
+    font-family: var(--text-font);
+}
+
+.footer-widget .list-style-one li .icon {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 18px;
+    color: var(--google-primary, #F94A29); /* Theme Orange */
+}
+
+.footer-widget .list-style-one li a {
+    color: #eef0f6;
+    transition: all 0.3s ease;
+}
+
+.footer-widget .list-style-one li a:hover {
+    color: var(--google-primary, #F94A29);
 }
