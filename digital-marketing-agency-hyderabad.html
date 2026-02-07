@@ -51,27 +51,49 @@
         </div>
     </header>
 
-    <!-- 1. Hero Section (Crito Style Refined) -->
-    <section class="hero-v2">
-        <!-- Geometric Decorators -->
-        <div class="crito-dots"></div>
-        <div class="crito-arch-red"></div>
-        <div class="crito-wave-cyan"></div>
+    <!-- 1. Hero Section (Redesigned) -->
+    <!-- 1. Hero Section (SEOC Redesign) -->
+    <!-- 1. Hero Section (Redesigned) -->
+    <section class="hero-seoc">
+        <!-- Background Hexagons (CSS/SVG) -->
+        <div class="hexagon-bg-container">
+            <div class="hex hex-1"></div>
+            <div class="hex hex-2"></div>
+            <div class="hex hex-3"></div>
+            <div class="hex hex-4"></div>
+            <div class="hex hex-5"></div>
+            <div class="hex hex-6"></div>
+        </div>
         
         <div class="container position-relative" style="z-index: 2;">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <span class="corp-subtitle" style="color:var(--brand-orange); letter-spacing: 2px;">Digital Marketing Agency in Hyderabad</span>
-                    <h1 class="my-3 display-4 fw-bold">15+ Years of Performance-Focused Digital Growth</h1>
-                    <p class="lead mb-4 opacity-75">As a leading digital marketing agency in Hyderabad, we help businesses scale through data-driven strategies, conversion-optimised creative, and multi-channel performance campaigns. With over 15 years of experience across diverse industries, we are committed to delivering measurable growth not vanity metrics.</p>
-                    <p class="h6 mb-5 opacity-75">Whether you're a startup, enterprise, or established brand, we build digital ecosystems that generate high-intent traffic, qualified leads, and predictable sales.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#contact" class="crito-btn">Get Your Strategy Audit</a>
+                <!-- Left Content -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="seoc-badge-red">
+                        <i class="ri-flashlight-fill"></i> 15+ Years of Excellence
+                    </div>
+                    <h1 class="seoc-title">
+                        Digital Marketing <span class="text-orange">Agency</span> <br><span class="text-orange">in Hyderabad</span>
+                    </h1>
+                    <p class="seoc-desc">
+                        We help businesses scale through data-driven strategies and performance campaigns. With over 15 years of experience, we deliver measurable growth—not vanity metrics—building digital ecosystems that generate traffic, leads, and predictable sales.
+                    </p>
+                    
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#contact" class="btn-seoc-red">Get Started</a>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center position-relative">
-                    <div class="crito-img-container">
-                        <img src="assets/images/hero-woman.png" alt="Success Agency" class="img-fluid">
+
+                <!-- Right Image & Elements -->
+                <div class="col-lg-6 position-relative">
+                    <!-- Main Image Container -->
+                    <div class="seoc-img-wrapper">
+                        <img src="assets/images/Layer 1.png" alt="Digital Marketing Expert" class="seoc-main-img">
+                         <!-- Logo on Laptop (simulated overlay if needed, or part of image) -->
+                         <!-- If the user wants the logo ON the laptop, we might need an overlay. 
+                              The reference image shows a logo on the laptop. 
+                              I will check if I should add it. -->
+                       
                     </div>
                 </div>
             </div>
@@ -80,237 +102,593 @@
 
 
 
-    <!-- 4. Growth Framework (Carousel Redesign) -->
-    <section class="section-padding overflow-hidden">
+    <!-- 4. Growth Framework (Interactive Carousel 8-Steps) -->
+    <section class="section-padding bg-white overflow-hidden">
         <div class="container">
-            <div class="text-center mb-5 pb-4">
-                <span class="corp-subtitle" style="color:var(--brand-orange);">How We Drive Growth for Your Business</span>
-                <h2 class="mb-3">Growth is engineered not accidental</h2>
-                <p class="max-width-800 mx-auto opacity-75">Our framework is designed to attract, engage, convert, and scale with precision.</p>
+            <div class="text-center mb-4">
+                <span class="corp-subtitle" style="color:var(--brand-orange)">Growth is engineered not accidental</span>
+                <h2 class="mb-3">How We Drive Growth for <span style="color:var(--brand-orange)">Your Business</span></h2>
+                <p class="text-muted">Our framework is designed to attract, engage, convert, and scale with precision.</p>
             </div>
             
-            <div class="framework-carousel">
-                <!-- Step 1 -->
-                <div class="carousel-item-wrapper">
-                    <div class="outstanding-card">
-                        <div class="step-number">01</div>
-                        <h4>Data Driven Strategy</h4>
-                        <p>We analyse your industry, competitors, customer patterns, and search behaviour to craft a zero-guesswork strategy.</p>
-                        <div class="impact-box">✔ Better targeting & Eliminated waste</div>
+            <!-- Tab Navigation Carousel -->
+            <div class="growth-tabs-wrapper position-relative text-center mb-3">
+                <!-- Navigation Arrows -->
+                <button class="tab-nav-arrow tab-prev" onclick="moveTabs(-1)"><i class="ri-arrow-left-s-line"></i></button>
+                <div class="growth-tabs-track-container">
+                    <div class="growth-tabs-track" id="growthTabsTrack">
+                        <!-- 1. Strategy -->
+                        <div class="growth-tab-item active" onclick="activateTab(0)">
+                            <div class="tab-icon"><i class="ri-search-eye-line"></i></div>
+                            <span class="tab-label">Data Driven Strategy,<br>Zero Guesswork</span>
+                        </div>
+                        <!-- 2. Traffic -->
+                        <div class="growth-tab-item" onclick="activateTab(1)">
+                            <div class="tab-icon"><i class="ri-bar-chart-groupped-line"></i></div>
+                            <span class="tab-label">High Intent Traffic<br>Acquisition</span>
+                        </div>
+                        <!-- 3. Funnels -->
+                        <div class="growth-tab-item" onclick="activateTab(2)">
+                            <div class="tab-icon"><i class="ri-filter-3-line"></i></div>
+                            <span class="tab-label">Conversion Optimised<br>Funnels</span>
+                        </div>
+                        <!-- 4. Creative -->
+                        <div class="growth-tab-item" onclick="activateTab(3)">
+                            <div class="tab-icon"><i class="ri-chat-smile-2-line"></i></div>
+                            <span class="tab-label">Creative<br>Storytelling</span>
+                        </div>
+                        <!-- 5. Segmentation -->
+                        <div class="growth-tab-item" onclick="activateTab(4)">
+                            <div class="tab-icon"><i class="ri-group-line"></i></div>
+                            <span class="tab-label">Advanced Audience<br>Segmentation</span>
+                        </div>
+                        <!-- 6. Sales -->
+                        <div class="growth-tab-item" onclick="activateTab(5)">
+                            <div class="tab-icon"><i class="ri-customer-service-2-line"></i></div>
+                            <span class="tab-label">Sales Enablement<br>& Automation</span>
+                        </div>
+                        <!-- 7. Reporting -->
+                        <div class="growth-tab-item" onclick="activateTab(6)">
+                            <div class="tab-icon"><i class="ri-file-chart-line"></i></div>
+                            <span class="tab-label">Constant Optimisation<br>& Reporting</span>
+                        </div>
+                        <!-- 8. Scale -->
+                        <div class="growth-tab-item" onclick="activateTab(7)">
+                            <div class="tab-icon"><i class="ri-rocket-line"></i></div>
+                            <span class="tab-label">Scalability for<br>Long-Term Growth</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Step 2 -->
-                <div class="carousel-item-wrapper">
-                    <div class="outstanding-card">
-                        <div class="step-number">02</div>
-                        <h4>High Intent Traffic</h4>
-                        <p>We bring customers actively searching for you via Google PMax, Meta Ads, and SEO-led organic performance.</p>
-                        <div class="impact-box">✔ Quick lead flow & Day 1 ROI</div>
+                <button class="tab-nav-arrow tab-next" onclick="moveTabs(1)"><i class="ri-arrow-right-s-line"></i></button>
+            </div>
+
+            <!-- Dynamic Content Area -->
+            <div id="growthContentContainer">
+                
+                <!-- 1. Data Driven Strategy -->
+                <div class="growth-content-block active">
+                    <div class="growth-content-card">
+                        <div class="row align-items-center g-3">
+                            <div class="col-lg-5">
+                                <div class="growth-image-box">
+                                    <img src="assets/images/man-laptop.png" alt="Strategy" class="main-person img-fluid">
+                                    <div class="overlay-stat-card">
+                                        <h6 class="mb-1 text-muted small">Strategy</h6>
+                                        <h4 class="mb-0 fw-bold">Zero Guesswork</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="ps-lg-4">
+                                    <h3 class="mb-3" style="color:var(--brand-orange)">Data Driven Strategy, Zero Guesswork</h3>
+                                    <p class="text-muted mb-4 lead" style="font-size:16px;">We analyse your industry, competitors, customer patterns, and search behaviour to craft a strategy aligned with your business goals.</p>
+                                    <h6 class="fw-bold mb-3">Impact:</h6>
+                                    <ul class="channel-list">
+                                        <li><i class="ri-checkbox-circle-line"></i> Better targeting</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Eliminated wasted spend</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Higher ROI</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Step 3 -->
-                <div class="carousel-item-wrapper">
-                    <div class="outstanding-card">
-                        <div class="step-number">03</div>
-                        <h4>Optimised Funnels</h4>
-                        <p>We build fast, mobile-first landing pages and funnels with clear CTAs and conversion-engineered zones.</p>
-                        <div class="impact-box">✔ Higher fills & Lower acquisition cost</div>
+
+                <!-- 2. High Intent Traffic Acquisition -->
+                <div class="growth-content-block">
+                    <div class="growth-content-card">
+                        <div class="row align-items-center g-3">
+                            <div class="col-lg-5">
+                                <div class="growth-image-box">
+                                    <img src="assets/images/man-laptop.png" alt="Traffic" class="main-person img-fluid">
+                                    <div class="overlay-stat-card">
+                                        <h6 class="mb-1 text-muted small">Lead Flow</h6>
+                                        <h4 class="mb-0 fw-bold">Quick & Quality</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="ps-lg-4">
+                                    <h3 class="mb-3" style="color:var(--brand-orange)">High Intent Traffic Acquisition</h3>
+                                    <p class="text-muted mb-4 lead" style="font-size:16px;">We bring customers who are actively searching for your service.</p>
+                                    <h6 class="fw-bold mb-3">Channels we use:</h6>
+                                    <ul class="channel-list">
+                                        <li><i class="ri-checkbox-circle-line"></i> Google Search & Performance Max</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Meta Ads (Facebook & Instagram)</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> SEO-led organic traffic</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Remarketing audiences</li>
+                                    </ul>
+                                    <div class="mt-3 p-3 bg-light rounded border-start border-4 border-warning">
+                                        <strong>Impact:</strong> Quick lead flow, Improved conversions, Stronger ROI from day one.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Step 4 -->
-                <div class="carousel-item-wrapper">
-                    <div class="outstanding-card">
-                        <div class="step-number">04</div>
-                        <h4>Creative Storytelling</h4>
-                        <p>Visuals that stop the scroll. We deliver reels, videos, and messaging that builds deep brand trust instantly.</p>
-                        <div class="impact-box">✔ Strong recall & Better recall</div>
+
+                <!-- 3. Conversion Optimised Funnels -->
+                <div class="growth-content-block">
+                    <div class="growth-content-card">
+                        <div class="row align-items-center g-3">
+                            <div class="col-lg-5">
+                                <div class="growth-image-box">
+                                    <img src="assets/images/man-laptop.png" alt="Funnels" class="main-person img-fluid">
+                                    <div class="overlay-stat-card">
+                                        <h6 class="mb-1 text-muted small">User Experience</h6>
+                                        <h4 class="mb-0 fw-bold">Enhanced</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="ps-lg-4">
+                                    <h3 class="mb-3" style="color:var(--brand-orange)">Conversion Optimised Funnels</h3>
+                                    <p class="text-muted mb-4 lead" style="font-size:16px;">We build landing pages and funnels that convert visitors into enquiries.</p>
+                                    <h6 class="fw-bold mb-3">What you get:</h6>
+                                    <ul class="channel-list">
+                                        <li><i class="ri-checkbox-circle-line"></i> Fast, mobile first pages</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Clear CTAs & Trust signals</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Enhanced user experience</li>
+                                    </ul>
+                                    <div class="mt-3 p-3 bg-light rounded border-start border-4 border-warning">
+                                        <strong>Impact:</strong> Higher form fills, More phone calls, Lower cost per acquisition.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Step 5 -->
-                <div class="carousel-item-wrapper">
-                    <div class="outstanding-card">
-                        <div class="step-number">05</div>
-                        <h4>Advanced Segmentation</h4>
-                        <p>We identify your most profitable audience clusters based on deep behavior, interests, and purchase intent.</p>
-                        <div class="impact-box">✔ More qualified leads & Lower CPL</div>
+
+                <!-- 4. Creative Storytelling -->
+                <div class="growth-content-block">
+                    <div class="growth-content-card">
+                        <div class="row align-items-center g-3">
+                            <div class="col-lg-5">
+                                <div class="growth-image-box">
+                                    <img src="assets/images/man-laptop.png" alt="Creative" class="main-person img-fluid">
+                                    <div class="overlay-stat-card">
+                                        <h6 class="mb-1 text-muted small">Brand Recall</h6>
+                                        <h4 class="mb-0 fw-bold">Strong</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="ps-lg-4">
+                                    <h3 class="mb-3" style="color:var(--brand-orange)">Creative Storytelling</h3>
+                                    <p class="text-muted mb-4 lead" style="font-size:16px;">Creatives that stop the scroll and messaging that moves customers.</p>
+                                    <h6 class="fw-bold mb-3">We deliver:</h6>
+                                    <ul class="channel-list">
+                                        <li><i class="ri-checkbox-circle-line"></i> Ad creatives</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Reels & videos</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Brand stories</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Engagement-driven content</li>
+                                    </ul>
+                                    <div class="mt-3 p-3 bg-light rounded border-start border-4 border-warning">
+                                        <strong>Impact:</strong> Strong brand recall, Better engagement, Increased trust.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Step 6 -->
-                <div class="carousel-item-wrapper">
-                    <div class="outstanding-card">
-                        <div class="step-number">06</div>
-                        <h4>Sales Enablement</h4>
-                        <p>We help you close faster with WhatsApp nurture flows, CRM setup, lead scoring, and automated sequences.</p>
-                        <div class="impact-box">✔ Higher closure rate & Stable pipe</div>
+
+                <!-- 5. Advanced Audience Segmentation -->
+                <div class="growth-content-block">
+                    <div class="growth-content-card">
+                        <div class="row align-items-center g-3">
+                            <div class="col-lg-5">
+                                <div class="growth-image-box">
+                                    <img src="assets/images/man-laptop.png" alt="Segmentation" class="main-person img-fluid">
+                                    <div class="overlay-stat-card">
+                                        <h6 class="mb-1 text-muted small">Leads</h6>
+                                        <h4 class="mb-0 fw-bold">More Qualified</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="ps-lg-4">
+                                    <h3 class="mb-3" style="color:var(--brand-orange)">Advanced Audience Segmentation</h3>
+                                    <p class="text-muted mb-4 lead" style="font-size:16px;">We identify your most profitable audience clusters based on behaviour, interests, and intent.</p>
+                                    <h6 class="fw-bold mb-3">Impact:</h6>
+                                    <ul class="channel-list">
+                                        <li><i class="ri-checkbox-circle-line"></i> More qualified leads</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Lower CPL</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Improved sales readiness</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Step 7 -->
-                <div class="carousel-item-wrapper">
-                    <div class="outstanding-card">
-                        <div class="step-number">07</div>
-                        <h4>Transparent Reporting</h4>
-                        <p>Real-time dashboards + weekly reports + monthly strategy calls to ensure total visibility into performance.</p>
-                        <div class="impact-box">✔ Better decisions & No waste</div>
+
+                <!-- 6. Sales Enablement & Automation -->
+                <div class="growth-content-block">
+                    <div class="growth-content-card">
+                        <div class="row align-items-center g-3">
+                            <div class="col-lg-5">
+                                <div class="growth-image-box">
+                                    <img src="assets/images/man-laptop.png" alt="Sales" class="main-person img-fluid">
+                                    <div class="overlay-stat-card">
+                                        <h6 class="mb-1 text-muted small">Closure Rate</h6>
+                                        <h4 class="mb-0 fw-bold">Higher</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="ps-lg-4">
+                                    <h3 class="mb-3" style="color:var(--brand-orange)">Sales Enablement & Automation</h3>
+                                    <p class="text-muted mb-4 lead" style="font-size:16px;">We help you close faster.</p>
+                                    <h6 class="fw-bold mb-3">Includes:</h6>
+                                    <ul class="channel-list">
+                                        <li><i class="ri-checkbox-circle-line"></i> WhatsApp nurture flows</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> CRM setup & Call tracking</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Lead scoring</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Follow-up sequences</li>
+                                    </ul>
+                                    <div class="mt-3 p-3 bg-light rounded border-start border-4 border-warning">
+                                        <strong>Impact:</strong> More appointments, Higher closure rate, Structured pipeline.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Step 8 -->
-                <div class="carousel-item-wrapper">
-                    <div class="outstanding-card">
-                        <div class="step-number">08</div>
-                        <h4>Scalability Designed</h4>
-                        <p>Once campaigns perform, we scale them safely and strategically for long-term digital market dominance.</p>
-                        <div class="impact-box">✔ Predictable growth & Expansion</div>
+
+                <!-- 7. Constant Optimisation & Transparent Reporting -->
+                <div class="growth-content-block">
+                    <div class="growth-content-card">
+                        <div class="row align-items-center g-3">
+                            <div class="col-lg-5">
+                                <div class="growth-image-box">
+                                    <img src="assets/images/man-laptop.png" alt="Reporting" class="main-person img-fluid">
+                                    <div class="overlay-stat-card">
+                                        <h6 class="mb-1 text-muted small">Decision Making</h6>
+                                        <h4 class="mb-0 fw-bold">Better</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="ps-lg-4">
+                                    <h3 class="mb-3" style="color:var(--brand-orange)">Constant Optimisation & Transparent Reporting</h3>
+                                    <p class="text-muted mb-4 lead" style="font-size:16px;">Real-time dashboards + weekly reports + monthly strategy calls.</p>
+                                    <h6 class="fw-bold mb-3">Impact:</h6>
+                                    <ul class="channel-list">
+                                        <li><i class="ri-checkbox-circle-line"></i> Better decision-making</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> No wasted budgets</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Continual performance improvement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- 8. Scalability Designed for Long-Term Growth -->
+                <div class="growth-content-block">
+                    <div class="growth-content-card">
+                        <div class="row align-items-center g-3">
+                            <div class="col-lg-5">
+                                <div class="growth-image-box">
+                                    <img src="assets/images/man-laptop.png" alt="Scaling" class="main-person img-fluid">
+                                    <div class="overlay-stat-card">
+                                        <h6 class="mb-1 text-muted small">Growth</h6>
+                                        <h4 class="mb-0 fw-bold">Predictable</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="ps-lg-4">
+                                    <h3 class="mb-3" style="color:var(--brand-orange)">Scalability Designed for Long-Term Growth</h3>
+                                    <p class="text-muted mb-4 lead" style="font-size:16px;">Once campaigns perform, we scale them safely and strategically.</p>
+                                    <h6 class="fw-bold mb-3">Impact:</h6>
+                                    <ul class="channel-list">
+                                        <li><i class="ri-checkbox-circle-line"></i> Predictable growth</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Geographic expansion</li>
+                                        <li><i class="ri-checkbox-circle-line"></i> Long-term digital dominance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+        
+        <!-- Interactive Logic -->
+        <script>
+            let currentTabSlide = 0;
+            const totalTabs = 8;
+            const tabsPerSlide = 4;
+            const maxSlide = Math.ceil(totalTabs / tabsPerSlide) - 1;
+
+            function moveTabs(direction) {
+                currentTabSlide += direction;
+                if(currentTabSlide < 0) currentTabSlide = 0;
+                if(currentTabSlide > maxSlide) currentTabSlide = maxSlide;
+                
+                const track = document.getElementById('growthTabsTrack');
+                track.style.transform = `translateX(-${currentTabSlide * 100}%)`;
+            }
+
+            function activateTab(index) {
+                // Update Tabs
+                const tabs = document.querySelectorAll('.growth-tab-item');
+                tabs.forEach(t => t.classList.remove('active'));
+                tabs[index].classList.add('active');
+
+                // Update Content
+                const contents = document.querySelectorAll('.growth-content-block');
+                contents.forEach(c => c.classList.remove('active'));
+                contents[index].classList.add('active');
+            }
+        </script>
     </section>
 
-    <!-- 5. Services Offered (Unique Stylish Glass Design) -->
-    <section class="section-padding bg-mesh-service">
-        <div class="mesh-orb" style="top:-10%; right:10%;"></div>
-        <div class="mesh-orb" style="bottom:-10%; left:5%; animation-delay: -5s;"></div>
-        
+    <!-- 5. Services Offered (Clean White Style) -->
+    <section class="section-padding bg-gradient-service">                
         <div class="container">
             <div class="text-center mb-5 pb-3 position-relative" style="z-index:1;">
-                <span class="corp-subtitle">Our Capabilities</span>
-                <h2 style="font-size: 3.5rem;">Digital Marketing Services We Offer</h2>
+                <h2 style="font-size: 3.5rem;">Digital Marketing <span style="color:var(--brand-orange)">Services We Offer</span></h2>
             </div>
-            <div class="row g-4 text-center position-relative" style="z-index:1;">
+            <div class="row g-4 text-start position-relative" style="z-index:1;">
                 <!-- SEO -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="glass-service-card">
-                        <div class="glass-service-icon-box">
+                    <div class="service-clean-card active-card">
+                        <div class="service-icon-box">
                             <i class="ri-search-eye-line"></i>
                         </div>
-                        <h4>Search Engine Optimization</h4>
-                        <p class="small opacity-75">Technical SEO, On-page, Authority links, and Local SEO for Hyderabad business.</p>
-                        <div class="service-outcome-badge">Sustainable Traffic</div>
+                        <h4>Search Engine Optimization (SEO)</h4>
+                        <p class="service-desc">Technical SEO, On-page optimisation, Authority link building, Local SEO for Hyderabad businesses.</p>
+                        <div class="service-outcome">
+                            <span class="outcome-label">Outcome:</span> Sustainable traffic and consistent inbound leads.
+                        </div>
                     </div>
                 </div>
                 <!-- PPC -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="glass-service-card">
-                        <div class="glass-service-icon-box">
+                    <div class="service-clean-card">
+                        <div class="service-icon-box">
                             <i class="ri-google-fill"></i>
                         </div>
                         <h4>Google Ads (PPC)</h4>
-                        <p class="small opacity-75">Search, Display, PMax, & YouTube Ads with ad spend optimisation.</p>
-                        <div class="service-outcome-badge">High Intent Leads</div>
+                        <p class="service-desc">Search, Display, PMax, & YouTube Ads, Conversion tracking, Ad spend optimisation, Custom landing pages.</p>
+                        <div class="service-outcome">
+                            <span class="outcome-label">Outcome:</span> High intent leads and maximum ROI.
+                        </div>
                     </div>
                 </div>
                 <!-- Social -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="glass-service-card">
-                        <div class="glass-service-icon-box">
+                    <div class="service-clean-card">
+                        <div class="service-icon-box">
                             <i class="ri-facebook-circle-fill"></i>
                         </div>
                         <h4>Social Media Marketing</h4>
-                        <p class="small opacity-75">Paid ads, creative calendars, and storytelling on Meta and LinkedIn.</p>
-                        <div class="service-outcome-badge">Strong Presence</div>
+                        <p class="service-desc">Paid ads on Facebook, Instagram, LinkedIn, Creative content calendars, Audience engagement, Brand storytelling.</p>
+                        <div class="service-outcome">
+                            <span class="outcome-label">Outcome:</span> Strong online presence and daily enquiries.
+                        </div>
                     </div>
                 </div>
                 <!-- Web Dev -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="glass-service-card">
-                        <div class="glass-service-icon-box">
+                    <div class="service-clean-card">
+                        <div class="service-icon-box">
                             <i class="ri-code-s-slash-line"></i>
                         </div>
-                        <h4>Website Development</h4>
-                        <p class="small opacity-75">Modern UI/UX, WordPress, and custom fast landing pages.</p>
-                        <div class="service-outcome-badge">Conversion Ready</div>
+                        <h4>Website Design & Development</h4>
+                        <p class="service-desc">Modern UI/UX, SEO friendly design, WordPress, custom landing pages, Fast & mobile first development.</p>
+                        <div class="service-outcome">
+                            <span class="outcome-label">Outcome:</span> A website that converts visitors into customers.
+                        </div>
                     </div>
                 </div>
                 <!-- Content -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="glass-service-card">
-                        <div class="glass-service-icon-box">
+                    <div class="service-clean-card">
+                        <div class="service-icon-box">
                             <i class="ri-edit-box-line"></i>
                         </div>
                         <h4>Content Marketing</h4>
-                        <p class="small opacity-75">Blogs, articles, and SEO clusters that build brand authority.</p>
-                        <div class="service-outcome-badge">Organic Authority</div>
+                        <p class="service-desc">Blogs, articles, and content clusters, SEO driven brand authority, Brand stories and scripts, Ad copies and email sequences.</p>
+                        <div class="service-outcome">
+                            <span class="outcome-label">Outcome:</span> Strong organic authority and trust.
+                        </div>
                     </div>
                 </div>
                 <!-- Branding -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="glass-service-card">
-                        <div class="glass-service-icon-box">
+                    <div class="service-clean-card">
+                        <div class="service-icon-box">
                             <i class="ri-palette-line"></i>
                         </div>
                         <h4>Branding & Creative</h4>
-                        <p class="small opacity-75">Logo, visual identity, and story-driven creative concepts.</p>
-                        <div class="service-outcome-badge">Memorable Brand</div>
+                        <p class="service-desc">Logo & identity design, Visual branding, Creative concepts, Story driven campaigns.</p>
+                        <div class="service-outcome">
+                            <span class="outcome-label">Outcome:</span> A unique and memorable brand presence.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. Industries We Specialise In -->
-    <section class="section-padding">
+    <!-- 7. Pain Points (Matched to Image) -->
+    <section class="section-padding bg-white">
         <div class="container">
-            <div class="slanted-grid">
-                <div class="slanted-text">
-                    <div class="watermark-text">EXPERTISE</div>
-                    <span class="corp-subtitle" style="color:var(--brand-orange);">Specialised Experience</span>
-                    <h2>Industries We Specialise In</h2>
-                    <p class="h5 opacity-75 mb-4">We have in-depth expertise across diverse sectors, understanding the unique buying behaviours of each.</p>
-                    
-                    <div class="industry-pill-grid">
-                        <div class="industry-pill"><i class="ri-building-line"></i> Real Estate</div>
-                        <div class="industry-pill"><i class="ri-restaurant-line"></i> Food & Restaurants</div>
-                        <div class="industry-pill"><i class="ri-shopping-cart-2-line"></i> E-commerce & D2C</div>
-                        <div class="industry-pill"><i class="ri-book-open-line"></i> Education & EdTech</div>
-                        <div class="industry-pill"><i class="ri-home-gear-line"></i> Interiors & Architecture</div>
-                        <div class="industry-pill"><i class="ri-heart-pulse-line"></i> Healthcare & Clinics</div>
-                        <div class="industry-pill"><i class="ri-roadster-line"></i> Automotive & Mfg</div>
-                        <div class="industry-pill"><i class="ri-bank-line"></i> Insurance & Finance</div>
-                        <div class="industry-pill"><i class="ri-plane-line"></i> Hospitality & Tourism</div>
-                        <div class="industry-pill"><i class="ri-music-2-line"></i> Events & Entertainment</div>
-                    </div>
-                    
-                    <p class="mt-4 opacity-75 small">Each industry has unique buying behaviours we tailor strategies to match.</p>
-                </div>
-                <div class="slanted-img-box text-end">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="img-main" alt="Industry Expert">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" class="img-sub" alt="Team Synergy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. FAQ (Pain Points) -->
-    <section class="section-padding bg-navy">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <span class="corp-subtitle" style="color:var(--brand-orange);">Pain Points</span>
-                    <h2 class="text-white">Customer Issues And How We Solve Them</h2>
-                    <p class="opacity-75 mt-4">Stop wasting budgets on agencies that don't understand your business. We solve your core marketing challenges.</p>
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <span class="corp-subtitle small" style="color:var(--brand-orange); letter-spacing: 2px; font-weight:700;">PAIN POINTS</span>
+                    <h2 class="display-5 text-dark mt-2 mb-4" style="font-family: 'Oswald', sans-serif; font-weight: 700; line-height: 1.2;">Customer Issues <br>And How We Solve <br>Them</h2>
+                    <p class="opacity-75 mt-4 text-muted" style="max-width: 400px; font-size: 15px;">Stop wasting budgets on agencies that don't understand your business. We solve your core marketing challenges.</p>
                 </div>
                 <div class="col-lg-7">
-                    <div class="accordion faq-v2-accordion" id="faqAccordion">
+                    <div class="accordion accordion-light" id="faqAccordion">
+                        <!-- Item 1 (Open) -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1">Pain Point: Not getting quality leads</button></h2>
-                            <div id="f1" class="accordion-collapse collapse show"><div class="accordion-body opacity-75"><strong>Our Solution:</strong> Tight targeting, keyword optimisation, high intent funnels.</div></div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1" aria-expanded="true">
+                                    Pain Point: Not getting quality leads
+                                </button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our Solution: Tight targeting, keyword optimisation, high intent funnels.
+                                </div>
+                            </div>
                         </div>
+                        
+                        <!-- Item 2 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">Pain Point: Competitors ranking better</button></h2>
-                            <div id="f2" class="accordion-collapse collapse"><div class="accordion-body opacity-75"><strong>Our Solution:</strong> Technical SEO + content clusters + link building.</div></div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                    Pain Point: Competitors ranking better
+                                </button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our Solution: Technical SEO + content clusters + link building.
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Item 3 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">Pain Point: High ad spend with low results</button></h2>
-                            <div id="f3" class="accordion-collapse collapse"><div class="accordion-body opacity-75"><strong>Our Solution:</strong> Campaign restructuring, audience segmentation, A/B testing.</div></div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                                    Pain Point: High ad spend with low results
+                                </button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our Solution: Campaign restructuring, audience segmentation, A/B testing.
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Item 4 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4">Pain Point: Weak social media presence</button></h2>
-                            <div id="f4" class="accordion-collapse collapse"><div class="accordion-body opacity-75"><strong>Our Solution:</strong> Creative storytelling + platform-specific content.</div></div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4">
+                                    Pain Point: Weak social media presence
+                                </button>
+                            </h2>
+                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our Solution: Creative storytelling + platform-specific content.
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Item 5 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f5">Pain Point: No visibility into marketing</button></h2>
-                            <div id="f5" class="accordion-collapse collapse"><div class="accordion-body opacity-75"><strong>Our Solution:</strong> Transparent reports, dashboards, weekly reviews.</div></div>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f5">
+                                    Pain Point: No visibility into marketing
+                                </button>
+                            </h2>
+                            <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our Solution: Transparent reports, dashboards, weekly reviews.
+                                </div>
+                            </div>
                         </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Industries We Specialise In (Grid Redesign) -->
+    <section class="section-padding bg-cream">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="corp-subtitle" style="color:var(--brand-orange);">Specialised Experience</span>
+                <h2 class="mb-3">Industries We Specialise In</h2>
+                <p class="max-width-800 mx-auto opacity-75">Each industry has unique buying behaviours we tailor strategies to match.</p>
+            </div>
+            
+            <div class="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-5 justify-content-center">
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-building-line"></i>
+                        <h5>Real Estate</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-restaurant-line"></i>
+                        <h5>Food & Restaurants</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-shopping-cart-2-line"></i>
+                        <h5>E-commerce & D2C</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-book-open-line"></i>
+                        <h5>Education & EdTech</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-home-gear-line"></i>
+                        <h5>Interiors & Architecture</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-heart-pulse-line"></i>
+                        <h5>Healthcare & Clinics</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-roadster-line"></i>
+                        <h5>Automotive & Manufacturing</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-bank-line"></i>
+                        <h5>Insurance & Finance</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-plane-line"></i>
+                        <h5>Hospitality & Tourism</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="industry-box">
+                        <i class="ri-music-2-line"></i>
+                        <h5>Events & Entertainment</h5>
                     </div>
                 </div>
             </div>
@@ -320,20 +698,20 @@
     <!-- 8. Success Stories (Portfolio) -->
     <section class="section-padding">
         <div class="container">
-            <div class="text-center mb-5 pb-4">
+            <div class="text-center mb-3 pb-3">
                 <span class="corp-subtitle">Case Studies</span>
                 <h2>Brand Success Stories</h2>
             </div>
-            <div class="row g-4">
+            <div class="row g-3">
                 <div class="col-lg-6">
                     <div class="work-v2-card shadow-sm h-100">
                         <div class="row g-0">
                             <div class="col-md-5"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" alt="Real Estate" style="height:100%;"></div>
                             <div class="col-md-7 p-4">
-                                <span class="badge bg-primary mb-2">Real Estate</span>
-                                <h4>7x Leads Growth</h4>
-                                <p class="small opacity-75 mt-3">Pain: Low enquiries<br>Solution: Hyperlocal ads + landing page overhaul</p>
-                                <div class="text-primary fw-bold mt-2">Result: 40% CPA Reduction</div>
+                                <span class="badge mb-2" style="background-color: var(--brand-orange);">Real Estate Developer</span>
+                                <h4>7x Leads</h4>
+                                <p class="small opacity-75 mt-3">Pain Point: Low-quality enquiries<br>Solution: Hyperlocal ads + landing page redesign</p>
+                                <div class="fw-bold mt-2" style="color: var(--brand-orange);">Result: 7x qualified leads, 40% CPA reduction</div>
                             </div>
                         </div>
                     </div>
@@ -343,10 +721,10 @@
                         <div class="row g-0">
                             <div class="col-md-5"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800" alt="Restaurant" style="height:100%;"></div>
                             <div class="col-md-7 p-4">
-                                <span class="badge bg-primary mb-2">Hospitality</span>
+                                <span class="badge mb-2" style="background-color: var(--brand-orange);">Restaurant Chain</span>
                                 <h4>300% Order Growth</h4>
-                                <p class="small opacity-75 mt-3">Pain: Irregular visibility<br>Solution: Social storytelling + Local SEO</p>
-                                <div class="text-primary fw-bold mt-2">Result: 300% Monthly Increase</div>
+                                <p class="small opacity-75 mt-3">Pain Point: Irregular online visibility<br>Solution: Social media storytelling + local SEO</p>
+                                <div class="fw-bold mt-2" style="color: var(--brand-orange);">Result: 300% increase in monthly orders</div>
                             </div>
                         </div>
                     </div>
@@ -356,10 +734,10 @@
                         <div class="row g-0">
                             <div class="col-md-5"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Interior" style="height:100%;"></div>
                             <div class="col-md-7 p-4">
-                                <span class="badge bg-primary mb-2">Interiors</span>
+                                <span class="badge mb-2" style="background-color: var(--brand-orange);">Interior Design Brand</span>
                                 <h4>3x Appointments</h4>
-                                <p class="small opacity-75 mt-3">Pain: Poor lead quality<br>Solution: SEO + Meta Website Optimisation</p>
-                                <div class="text-primary fw-bold mt-2">Result: 3x Consultancy Growth</div>
+                                <p class="small opacity-75 mt-3">Pain Point: Poor lead quality<br>Solution: SEO + Meta Ads + website optimisation</p>
+                                <div class="fw-bold mt-2" style="color: var(--brand-orange);">Result: 3x growth in consultations</div>
                             </div>
                         </div>
                     </div>
@@ -369,10 +747,10 @@
                         <div class="row g-0">
                             <div class="col-md-5"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Manufacturing" style="height:100%;"></div>
                             <div class="col-md-7 p-4">
-                                <span class="badge bg-primary mb-2">Manufacturing</span>
+                                <span class="badge mb-2" style="background-color: var(--brand-orange);">Manufacturing Client</span>
                                 <h4>40% More B2B Leads</h4>
-                                <p class="small opacity-75 mt-3">Pain: Weak online presence<br>Solution: LinkedIn ads + Tech SEO</p>
-                                <div class="text-primary fw-bold mt-2">Result: PAN India Enquiries</div>
+                                <p class="small opacity-75 mt-3">Pain Point: Weak online presence<br>Solution: LinkedIn ads + technical SEO</p>
+                                <div class="fw-bold mt-2" style="color: var(--brand-orange);">Result: High-value B2B enquiries from PAN India</div>
                             </div>
                         </div>
                     </div>
@@ -381,116 +759,138 @@
         </div>
     </section>
 
-    <!-- 10. Why Choose Us -->
-    <section class="section-padding bg-gray">
-    <!-- 10. Why Choose Us (Redesigned) -->
-    <section class="section-padding bg-cream">
+    <!-- 10. Why Choose Us (Clean Redesign) -->
+    <section class="section-padding bg-white">
         <div class="container">
-            <div class="row align-items-center g-5">
+            <div class="row align-items-center g-3">
                 <div class="col-lg-6">
                     <span class="corp-subtitle">Why Choose Us?</span>
-                    <h2 class="mb-4">We help you get more leads and stable long-term growth</h2>
-                    <p class="opacity-75 mb-4">Our process is built on transparency and results. No guesswork, just proven strategies.</p>
+                    <h2 class="mb-4">We help you get more leads, more sales, and stable <span style="color:var(--brand-orange)">long-term growth</span></h2>
                     
-                    <!-- Feature Grid -->
-                    <div class="feature-grid">
-                        <div class="feature-box">
-                            <i class="ri-history-line"></i>
-                            <h5>15+ Years Exp</h5>
-                            <p class="small opacity-75 mb-0">Decades of proven results.</p>
-                        </div>
-                        <div class="feature-box">
-                            <i class="ri-bar-chart-box-line"></i>
-                            <h5>ROI-Driven</h5>
-                            <p class="small opacity-75 mb-0">Optimized for maximum return.</p>
-                        </div>
-                        <div class="feature-box">
-                            <i class="ri-file-list-3-line"></i>
-                            <h5>Transparency</h5>
-                            <p class="small opacity-75 mb-0">Clear reporting & communication.</p>
-                        </div>
-                        <div class="feature-box">
-                            <i class="ri-team-line"></i>
-                            <h5>Specialists</h5>
-                            <p class="small opacity-75 mb-0">Dedicated experts for every channel.</p>
-                        </div>
-                        <div class="feature-box">
-                            <i class="ri-briefcase-4-line"></i>
-                            <h5>Industry Expertise</h5>
-                            <p class="small opacity-75 mb-0">Proven across diverse sectors.</p>
-                        </div>
-                        <div class="feature-box">
-                            <i class="ri-layout-masonry-line"></i>
-                            <h5>End-to-End</h5>
-                            <p class="small opacity-75 mb-0">Strategy to execution under one roof.</p>
-                        </div>
-                        <div class="feature-box" style="grid-column: span 2;">
-                            <i class="ri-palette-line"></i>
-                            <h5>Creative + Performance</h5>
-                            <p class="small opacity-75 mb-0">Storytelling that converts.</p>
-                        </div>
+                    <div class="why-list-clean">
+                        <div class="why-item"><i class="ri-checkbox-circle-fill"></i> 15+ Years of Experience</div>
+                        <div class="why-item"><i class="ri-checkbox-circle-fill"></i> ROI-Driven Approach</div>
+                        <div class="why-item"><i class="ri-checkbox-circle-fill"></i> Transparent Reporting</div>
+                        <div class="why-item"><i class="ri-checkbox-circle-fill"></i> Dedicated Team of Specialists</div>
+                        <div class="why-item"><i class="ri-checkbox-circle-fill"></i> Proven Industry Expertise</div>
+                        <div class="why-item"><i class="ri-checkbox-circle-fill"></i> End-to-End Capabilities</div>
+                        <div class="why-item"><i class="ri-checkbox-circle-fill"></i> Creative + Performance Blend</div>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center position-relative">
-                    <div class="crito-decor-dots" style="top:-20px; right:-20px;"></div>
-                    <img src="assets/images/team-celebration.png" alt="Specialist Team" class="img-fluid rounded shadow-lg position-relative" style="border-radius:30px; z-index:1;">
-                    
-                    <!-- Floating Happiness Badge -->
-                    <div class="img-happiness-badge">
-                        <div class="badge-icon"><i class="ri-trophy-line"></i></div>
-                        <div>
-                            <div class="h5 m-0 fw-bold">Success</div>
-                            <small class="opacity-75">Client First Focus</small>
-                        </div>
-                    </div>
+                <div class="col-lg-6 position-relative">
+                    <img src="assets/images/team-celebration.png" alt="Specialist Team" class="img-fluid rounded-4 shadow-lg position-relative" style="z-index:1;">
+                    <!-- Creative Decorator -->
+                     <div class="position-absolute" style="top: -30px; right: -30px; z-index: 0; opacity: 0.5;">
+                        <svg width="100" height="100" fill="var(--brand-orange)"><circle cx="50" cy="50" r="50"/></svg>
+                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 11. Final Contact -->
-    <section class="section-padding" id="contact">
+    <!-- 11. Final Contact (Red Background Split) -->
+    <section class="contact-red-section" id="contact">
         <div class="container">
-            <div class="contact-v2-card shadow-lg bg-light border-0">
-                <div class="text-center mb-5">
-                    <span class="corp-subtitle">Hyderabad Marketing Partner</span>
-                    <h3>Let’s Accelerate Your Business Growth in Hyderabad</h3>
-                    <p class="max-width-800 mx-auto opacity-75 mt-3">Ready to build a marketing system that delivers predictable growth? Fill in the details to claim your free strategy audit.</p>
+            <div class="row g-3">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">Let’s Accelerate Your <br>Business Growth in <br>Hyderabad</h2>
+                    <p class="lead mb-4 opacity-75">If you're looking for a digital marketing agency that understands both Hyderabad’s competitive market and modern customer behaviour, you’re in the right place.</p>
+                    <p class="mb-3 opacity-75">We build marketing systems that deliver predictable, measurable, and repeatable growth.</p>
                 </div>
-                <form action="form.php" method="POST">
-                    <div class="row g-4">
-                        <div class="col-md-6"><input type="text" name="name" class="form-control p-4 h-auto" placeholder="Full Name" required></div>
-                        <div class="col-md-6"><input type="email" name="email" class="form-control p-4 h-auto" placeholder="Email Address" required></div>
-                        <div class="col-md-6"><input type="tel" name="phone" class="form-control p-4 h-auto" placeholder="Phone Number" required></div>
-                        <div class="col-md-6"><input type="text" name="website" class="form-control p-4 h-auto" placeholder="Business Website"></div>
-                        <div class="col-12"><select name="service" class="form-control p-4 h-auto" required><option value="" disabled selected>Primary Interest</option><option value="seo">SEO</option><option value="ppc">PPC/Ads</option><option value="web">Website & Funnels</option></select></div>
-                        <div class="col-12 text-center mt-4"><button type="submit" class="btn-v2-primary w-100 py-4">Request Free Strategy Audit <i class="ri-arrow-right-line"></i></button></div>
+                <div class="col-lg-6">
+                    <div class="contact-card-white">
+                        <div class="text-center mb-4">
+                            <h3>Get In Touch</h3>
+                            <span class="small-text">Fill the form to get your free audit</span>
+                        </div>
+                        <form action="form.php" method="POST">
+                            <div class="row g-3">
+                                <div class="col-12"><input type="text" name="name" class="form-control" placeholder="Full Name" required></div>
+                                <div class="col-12"><input type="email" name="email" class="form-control" placeholder="Email Address" required></div>
+                                <div class="col-12"><input type="tel" name="phone" class="form-control" placeholder="Phone Number" required></div>
+                                <div class="col-12"><textarea name="message" class="form-control" rows="3" placeholder="Your Message"></textarea></div>
+                                <div class="col-12 mt-4"><button type="submit" class="btn-submit-red">Request Free Audit <i class="ri-arrow-right-line"></i></button></div>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
 
-    <!-- 13. Footer -->
-    <footer class="main-footer bg-navy section-padding" style="padding-top:180px !important;">
-        <div class="container text-center text-lg-start">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-4">
-                    <img src="assets/images/footerlogo.png" height="50" alt="Smart Solutions">
-                    <p class="opacity-50 mt-4 h6">Leading the digital charge in Hyderabad since 2009. We build for performance and scale.</p>
+    <!-- Main Footer -->
+    <footer class="main-footer footer-style-one">
+      <!-- Widgets Section -->
+      <div class="widgets-section">
+        <div class="auto-container">
+          <div class="row">
+            
+            <!-- Brand Column -->
+            <div class="footer-column col-lg-3 col-sm-6 mb-4 wow fadeInLeft" data-wow-delay="200ms">
+              <div class="footer-widget contact-widget">
+                <div class="logo-box mb-3">
+                  <div class="logo"><a href="index.html"><img src="assets/images/footerlogo.png" alt="Smart Solutions" title="Smart Solutions"></a></div>
                 </div>
-                <div class="col-lg-8 text-lg-end">
-                    <div class="opacity-50 mb-3">contact@smartsolutionsdigi.com</div>
-                    <div class="social-links h4 mb-4">
-                        <a href="#" class="text-white mx-2"><i class="ri-linkedin-fill"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="ri-instagram-fill"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="ri-facebook-fill"></i></a>
-                    </div>
-                    <div class="opacity-50">© 2026 Smart Solutions. Hyderabad's Digital Growth Partner.</div>
+                <div class="widget-content">
+                  <p class="text-white opacity-75">Digital Growth For Hyderabad Businesses.</p>
                 </div>
+              </div>
             </div>
+    
+            <!-- Address Column -->
+            <div class="footer-column col-lg-3 col-sm-6 mb-4 wow fadeInLeft" data-wow-delay="400ms">
+              <div class="footer-widget links-widget">
+                <h4 class="widget-title">Address</h4>
+                <div class="widget-content">
+                  <p class="text-white opacity-75">iSprout - Modern Profound Techpark, 2nd Floor, Survey No. 12, Office No. 201, Kondapur, Hyderabad, Telangana, 500084</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Contact Column -->
+            <div class="footer-column col-lg-3 col-sm-6 mb-4 wow fadeInLeft" data-wow-delay="600ms">
+              <div class="footer-widget links-widget">
+                <h4 class="widget-title">Contact</h4>
+                <div class="widget-content">
+                  <ul class="user-links style-two">
+                    <li><a href="mailto:hello@smartsolutionsdigi.com">hello@smartsolutionsdigi.com</a></li>
+                    <li><a href="tel:+916281939690">+91 62819 39690</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Menu Column -->
+            <div class="footer-column col-lg-3 col-sm-6 mb-4 wow fadeInLeft" data-wow-delay="800ms">
+              <div class="footer-widget links-widget">
+                <h4 class="widget-title">Menu</h4>
+                <div class="widget-content">
+                  <ul class="user-links style-two">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </div>
+    
+      <!--  Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="auto-container">
+          <div class="inner-container">
+            <div class="copyright-text">
+              © 2025 Smart Solutions. All Rights Reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="scroll-to-top scroll-to-target arrow-btn" data-target="html" ><i class="fa-sharp fa-solid fa-arrow-up"></i></div>
     </footer>
 
 </div>
