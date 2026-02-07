@@ -234,6 +234,112 @@ p { margin-bottom: 15px; }
     z-index: 2;
 }
 
+/* Floating Icons Styling */
+/* Concentric Pulse Rings */
+.pulse-rings-container {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    z-index: 0; /* Behind image */
+    pointer-events: none;
+}
+.seoc-main-img { z-index: 2; position: relative; }
+
+.ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(249, 74, 41, 0.2); /* Brand orange subtle */
+    box-shadow: 0 0 20px rgba(249, 74, 41, 0.05);
+    opacity: 0;
+    animation: ripplePulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.ring-1 { width: 300px; height: 300px; animation-delay: 0s; }
+.ring-2 { width: 450px; height: 450px; animation-delay: 1s; }
+.ring-3 { width: 600px; height: 600px; animation-delay: 2s; }
+
+@keyframes ripplePulse {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Stack Container */
+.cards-stack-container {
+    position: absolute;
+    top: 50%;
+    right: 48%; /* The horizontal position requested */
+    transform: translateY(-50%); /* Center vertically relative to container */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Consistent gap between cards */
+    z-index: 3;
+}
+
+/* Premium Floating Graph Card */
+.premium-float-card {
+    position: relative; /* Changed from absolute to relative for flex items */
+    background: #fff;
+    padding: 10px 15px; 
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: floatSimple 6s ease-in-out infinite;
+    max-width: 200px;
+    min-width: 140px;
+    /* Reset individual positioning since container handles it */
+    top: auto; right: auto; bottom: auto; left: auto;
+}
+
+/* Stagger animations for wave effect */
+.card-1 { animation-delay: 0s; }
+.card-2 { animation-delay: 1s; }
+.card-3 { animation-delay: 2s; }
+.card-4 { animation-delay: 3s; }
+
+/* Remove specific positioning overrides */
+
+.card-icon {
+    width: 40px; height: 40px; /* Slightly smaller */
+    background: rgba(249, 74, 41, 0.1);
+    color: var(--brand-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.card-info { display: flex; flex-direction: column; }
+.card-info span { font-size: 11px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.card-info h4 { margin: 0; font-size: 18px; font-weight: 800; color: #333; line-height: 1.1; }
+
+@keyframes floatSimple {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+
+@media (max-width: 991px) {
+    .pulse-rings-container { width: 350px; height: 350px; }
+    .ring-1 { width: 200px; height: 200px; }
+    .ring-2 { width: 280px; height: 280px; }
+    .ring-3 { width: 360px; height: 360px; }
+    
+    /* Mobile: Reposition stack */
+    .cards-stack-container { right: auto; left: 50%; transform: translate(-50%, -50%); top: 40%; }
+    .premium-float-card { padding: 8px 12px; transform: scale(0.85); min-width: 120px; }
+    .card-info h4 { font-size: 16px; }
+    .card-icon { width: 32px; height: 32px; font-size: 16px; }
+    /* Show only 2 cards on mobile to save space */
+    .card-3, .card-4 { display: none; }
+}
+
 /* Animations */
 @keyframes float {
     0%, 100% { transform: translateY(0); }
