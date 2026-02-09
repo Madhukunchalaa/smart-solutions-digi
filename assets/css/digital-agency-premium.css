@@ -915,4 +915,104 @@ p { margin-bottom: 15px; }
     .premium-float-card.card-4 { right: 0%; bottom: 0%; }
 }
 
+/* --- Service Clean Card Hover Effects --- */
+.service-clean-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid transparent; /* Base border */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.service-clean-card:hover {
+    border-color: #F94A29;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(249, 74, 41, 0.15);
+}
+
+.service-icon-box {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 50%;
+    background: #FFF1EE; /* Light Orange base */
+    color: #F94A29;
+    font-size: 24px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.service-clean-card:hover .service-icon-box {
+    background: #F94A29;
+    color: #ffffff;
+}
+
+.service-clean-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.service-desc {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.service-outcome {
+    font-size: 14px;
+    color: #222;
+    font-weight: 500;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.outcome-label {
+    color: #F94A29;
+    font-weight: 700;
+}
+
+/* --- Contact Red Section --- */
+.contact-red-section {
+    background-color: #F94A29; /* Brand Orange-Red */
+    padding: 80px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-red-section h2 {
+    color: #2D2D2D; /* Default Black for first half */
+}
+
+/* Ensure form card stands out */
+.contact-card-white {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    color: #2D2D2D;
+}
+
+.btn-submit-red {
+    background: #F94A29;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    width: 100%;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+.btn-submit-red:hover {
+    background: #e03e1f;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
 
